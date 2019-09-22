@@ -19,8 +19,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.listen(4040, function() {
+  console.log('server up and running');
+});
+
 // GET routes
-app.use('/', indexRouter);
+//app.use('/', indexRouter); Comment this so default path grabs index.html
 app.use('/testdb', databaseTestRouter);
 
 // catch 404 and forward to error handler
