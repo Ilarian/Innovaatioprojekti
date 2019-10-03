@@ -1,5 +1,7 @@
 Miten kysymyksien, kriteerien ja vastauksien välinen yhteys?
 	1. Periaatteessa voitaisiin laittaa kriteerit tehtävä taulun attribuuteiksi integereinä, 
 	joita olisi helppo käsitellä tosin tämä vaikuttaa omasta mielestäni jotenkin liian spesifiltä.
-	2. Suunnitellaan joku kriteriataulu mahdollisesti?
-	
+	2. Suunnitellaan joku kriteriataulu mahdollisesti jos tarve syntyy kompleksimmalle taululle?
+
+Täytyy jossain välissä tutkia tarkemmin noita oikeuksia ja käyttäjiä ksnnsssa.
+Kannan sijainti on vielä hieman mysteeri.

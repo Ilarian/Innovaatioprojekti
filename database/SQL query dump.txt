@@ -1,0 +1,7 @@
+Several SQL queries for quick use:
+Insert into db tables:
+INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value) VALUES ('testtask', 'testing tasks', 1, 2, 3);
+INSERT INTO image (url, task_id) VALUES ('www.localhost.com', 1); (Note: it's good to make sure that the foreign key exists before adding images)
+INSERT INTO question (name, min_value_desc, max_value_desc) VALUES ('Arvioi sosiaalisuus', 'Ei sosiaalinen', 'Sosiaalinen');
+Select table contents:
+SELECT * FROM task;
