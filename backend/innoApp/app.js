@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var databaseTestRouter = require('./routes/databaseTest');
+var databaseRouter = require('./routes/database');
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.listen(4040, function() {
 
 // GET routes
 //app.use('/', indexRouter); Comment this so default path grabs index.html
-app.use('/testdb', databaseTestRouter);
+app.use('/db', databaseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

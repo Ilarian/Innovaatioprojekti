@@ -6,8 +6,8 @@ testElement.innerHTML = "JS loaded successfully!";
 var dbTestButton = document.getElementById('dbTestButton');
 dbTestButton.onclick = function() {
     var xhr = new XMLHttpRequest();
-    //Make a get call to /testdb route
-    xhr.open("GET", "/testdb", true);
+    //Make a get call to /db route
+    xhr.open("GET", "/db/test", true);
     //Handles response
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
