@@ -78,6 +78,26 @@ header .header-content .header-content-inner p {
     text-align: center;
 }
 
+.tasks {
+	color: #fff;
+    background-color: rgb(12, 83, 107);
+    padding: 70px 0;
+    text-align: center;
+}
+
+.task {
+    border-style: groove;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5%;
+    }
+
+.collapsible {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    }
+
 .page-footer {
 	text-align: center;
 	}
