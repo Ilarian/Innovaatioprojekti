@@ -4,13 +4,17 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Aloitussivu</title>
+    <title>Kyselyn tulokset</title>
 
     <!-- CSS -->
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
+    <!-- JavaScript -->
+    <script src="tasks.js"></script>
 </head>
 
 <body>
@@ -19,26 +23,26 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Otsikko</h1>
-            <p>Tekstiä, johdanto, aloitusinfoa jne.</p>
-            <a href="#" class="btn btn-primary btn-lg">Aloita</a>
+            <h1>Kyselyn tulokset</h1>
         </div>
     </div>
 </header>
 
-<!-- Intro/lisätieto -->
-<section class="intro">
+<!-- Tehtävät -->
+<section class="tasks">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2 class="section-heading">Tarkempaa tietoa, "intro"</h2>
-                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <br>
-                <p class="text-light">Näitä osioita voi lisätä tarpeen mukaan niin paljon kuin haluaa</p>
+                <h2 class="section-heading">Tehtävät</h2>
+                <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
+                <div id="tasklist"></div>
+                <button id="more" class="btn btn-primary btn-lg">Lisää</button>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <!-- Footer -->
 <footer class="page-footer">

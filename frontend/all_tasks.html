@@ -10,6 +10,8 @@
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- JavaScript -->
     <script src="tasks.js"></script>
@@ -23,19 +25,19 @@
         <div class="header-content-inner">
             <h1>Kaikki tehtävät</h1>
             <p>Selaa kaikkia tehtäviä</p>
-            <button id="buttona" class="btn btn-primary btn-lg">Versio 1</a>
-            <button id="buttonb" class="btn btn-primary btn-lg">Versio 2</a>
         </div>
     </div>
 </header>
 
-<!-- Intro/lisätieto -->
+<!-- Tehtävät -->
 <section class="tasks">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2 class="section-heading">Tehtävät</h2>
+                <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
                 <div id="tasklist"></div>
+                <button id="more" class="btn btn-primary btn-lg">Lisää</button>
             </div>
         </div>
     </div>
