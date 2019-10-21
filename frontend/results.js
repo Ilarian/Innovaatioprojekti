@@ -4,12 +4,6 @@ window.onload = function(){
 
     //"show more" button
     var morebutton = document.getElementById("more");
-    var afirstsort = document.getElementById("afirst");
-    var zfirstsort = document.getElementById("zfirst");
-    var datesort = document.getElementById("date");
-    var thinksort = document.getElementById("think");
-    var physicalsort = document.getElementById("physical");
-    var socialsort = document.getElementById("social");
 
     // tasks will be received from the database
     var tasks = [{name:"Kassa", description:"Hoida kassaa", image:"https://upload.wikimedia.org/wikipedia/commons/3/39/Fat_cat.jpg"},
@@ -22,44 +16,6 @@ window.onload = function(){
                  {name:"Kuvatesti", description:"Jos kuva puuttuu tai on hajalla", image:"http://ei.toimi.kuva"},
                  {name:"Lisähomma", description:"Lisää hommia", image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Praha_Spanish_Synagogue_Dome_01.jpg"}];
 
-    afirstsort.onclick = afirstsortFunction
-    
-    function afirstsortFunction() {
-        tasks.sort(function(a, b){
-            var x = a.name.toLowerCase();
-            var y = b.name.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
-            return 0;
-        }); 
-        // clear tasks
-        while (tasklist.firstChild) {
-            tasklist.removeChild(tasklist.firstChild);
-        }
-        // call function for each task
-        tasks.forEach(addTask);
-        j = 8;
-        showTasks();
-    }
-
-    zfirstsort.onclick = function() {
-        tasks.sort(function(a, b){
-            var x = a.name.toLowerCase();
-            var y = b.name.toLowerCase();
-            if (x > y) {return -1;}
-            if (x < y) {return 1;}
-            return 0;
-        }); 
-        // clear tasks
-        while (tasklist.firstChild) {
-            tasklist.removeChild(tasklist.firstChild);
-        }
-        // call function for each task
-        tasks.forEach(addTask);
-        j = 8;
-        showTasks();
-    }
-    
     // clear tasks
     /* while (tasklist.firstChild) {
         tasklist.removeChild(tasklist.firstChild);
@@ -130,6 +86,5 @@ window.onload = function(){
         }
         j = j+8;
     }
-
-    afirstsortFunction();
+    showTasks();
 };
