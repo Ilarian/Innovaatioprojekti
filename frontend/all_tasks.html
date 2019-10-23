@@ -20,14 +20,14 @@
 <body>
 
 <!-- Header -->
-<header>
+<!--<header>
     <div class="header-content">
         <div class="header-content-inner">
             <h1>Kaikki tehtävät</h1>
             <p>Selaa kaikkia tehtäviä</p>
         </div>
     </div>
-</header>
+</header>-->
 
 <!-- Tehtävät -->
 <section class="tasks">
@@ -35,14 +35,15 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2 class="section-heading">Tehtävät</h2>
-                <div>
-                    <p>Järjestä:</p>
-                    <button id="afirst" class="btn btn-primary btn-lg">A-Ö</button>
-                    <button id="zfirst" class="btn btn-primary btn-lg">Ö-A</button>
-                    <button id="date" class="btn btn-primary btn-lg">Päivämäärä</button>
-                    <button id="think" class="btn btn-primary btn-lg">Ajattelu</button>
-                    <button id="physical" class="btn btn-primary btn-lg">Fyysisyys</button>
-                    <button id="social" class="btn btn-primary btn-lg">Sosiaalisuus</button>
+                <div class="sorting">
+                    <p class="sort-content">Järjestä:</p>
+                    <button id="afirst" class="btn btn-primary btn-lg sort-content">A-Ö</button>
+                    <button id="zfirst" class="btn btn-primary btn-lg sort-content">Ö-A</button>
+                    <button id="dateLatest" class="btn btn-primary btn-lg sort-content">Päivämäärä (Myöhäisin)</button>
+                    <button id="dateEarliest" class="btn btn-primary btn-lg sort-content">Päivämäärä (Aikaisin)</button>
+                    <button id="think" class="btn btn-primary btn-lg sort-content">Ajattelu</button>
+                    <button id="physical" class="btn btn-primary btn-lg sort-content">Fyysisyys</button>
+                    <button id="social" class="btn btn-primary btn-lg sort-content">Sosiaalisuus</button>
                 </div>
                 <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
                 <div id="tasklist"></div>
@@ -53,6 +54,42 @@
 </section>
 
 
+<!-- The Modal -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div id="modal-content">
+        <div id="modal-header"></div>
+        <div id="modal-upper">
+            <div id="modal-image-container">
+                <img class="modal-image" id="modal-image">
+            </div>
+            <div id="modal-info-container">
+                <div id="modal-date">
+                    <p id="modal-date-text" class="title-text">Päivämäärä ja aika:</p>
+                    <p id="modal-date-value"></p>
+                </div>
+                <div id="modal-phone">
+                    <p id="modal-phone-text" class="title-text">Puhelinnumero:</p>
+                    <p id="modal-phone-value"></p>
+                </div>
+                <div id="modal-email">
+                    <p id="modal-email-text" class="title-text">Sähköposti:</p>
+                    <p id="modal-email-value"></p>
+                </div>
+                <div id="modal-link">
+                    <p id="modal-link-text" class="title-text">Lisätieto linkki:</p>
+                    <a id="modal-link-value" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-lower">
+            <div id="modal-description">
+                <p id="modal-description-text" class="title-text">Kuvaus</p>
+                <p id="modal-description-value"></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="page-footer">

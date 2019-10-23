@@ -5,3 +5,6 @@ Miten kysymyksien, kriteerien ja vastauksien välinen yhteys?
 
 Täytyy jossain välissä tutkia tarkemmin noita oikeuksia ja käyttäjiä ksnnsssa.
 Kannan sijainti on vielä hieman mysteeri.
+
+Lisättävä lisää kenttiä tauluihin.
+Päivämäärä, yhteystiedot (sähköposti, puhelinnumero, linkki)

@@ -1,29 +1,65 @@
 window.onload = function(){
     // Iterator limiter for show more
-    var j = 8;
+    const shown = 12;
+    var j = shown;
+
+    // Get the modal
+    var modal = document.getElementById("modal");
+    var modalHeader = document.getElementById("modal-header");
+    var modalImg = document.getElementById("modal-image");
+    var descriptionText = document.getElementById("modal-description-value");
+    var dateText = document.getElementById("modal-date-value");
+    var phoneText = document.getElementById("modal-phone-value");
+    var emailText = document.getElementById("modal-email-value");
+    var linkText = document.getElementById("modal-link-value");
 
     //"show more" button
     var morebutton = document.getElementById("more");
+
+    // Sort buttons
+    // TODO: Make buttons reverse on another click?
     var afirstsort = document.getElementById("afirst");
     var zfirstsort = document.getElementById("zfirst");
-    var datesort = document.getElementById("date");
+    var datelsort = document.getElementById("dateLatest");
+    var dateesort = document.getElementById("dateEarliest");
     var thinksort = document.getElementById("think");
     var physicalsort = document.getElementById("physical");
     var socialsort = document.getElementById("social");
 
     // tasks will be received from the database
-    var tasks = [{name:"Kassa", description:"Hoida kassaa", image:"https://upload.wikimedia.org/wikipedia/commons/3/39/Fat_cat.jpg"},
-                 {name:"Varasto", description:"Hoida varastoa", image:"https://upload.wikimedia.org/wikipedia/commons/9/9a/HK_TST_HK_Museum_of_Art_-_Fat_horse.JPG"},
-                 {name:"Homma", description:"Hoida homma", image:"https://upload.wikimedia.org/wikipedia/commons/f/f2/Seal_of_Approval_of_more_Seals_%2837503982020%29.jpg"},
-                 {name:"Pieni juttu", description:"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image:"https://upload.wikimedia.org/wikipedia/commons/a/a8/Birdleft.gif"},
-                 {name:"Testi", description:"Testataan", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Altar_of_Santi_Bonifacio_e_Alessio_%28Rome%29.jpg/800px-Altar_of_Santi_Bonifacio_e_Alessio_%28Rome%29.jpg"},
-                 {name:"Kauppa", description:"Kaupan hoito", image:"https://upload.wikimedia.org/wikipedia/commons/6/6b/Vrchotovy_Janovice_-_castle_-_main_gate.jpg"},
-                 {name:"Järjestely", description:"Järjestelyä", image:"https://upload.wikimedia.org/wikipedia/commons/8/80/Vertical_granite_cliff_at_sunset.jpg"},
-                 {name:"Kuvatesti", description:"Jos kuva puuttuu tai on hajalla", image:"http://ei.toimi.kuva"},
-                 {name:"Lisähomma", description:"Lisää hommia", image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Praha_Spanish_Synagogue_Dome_01.jpg"}];
+    var tasks = [{name:"Kassa", description:"Hoida kassaa", date:new Date('December 17, 2019 03:24:00'), think:3, physical:1, social:5, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/3/39/Fat_cat.jpg"},
+                 {name:"Varasto", description:"Hoida varastoa", date:new Date('December 17, 2019 03:24:00'), think:2, physical:5, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/9/9a/HK_TST_HK_Museum_of_Art_-_Fat_horse.JPG"},
+                 {name:"Homma", description:"Hoida homma", date:new Date('December 17, 2019 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/f2/Seal_of_Approval_of_more_Seals_%2837503982020%29.jpg"},
+                 {name:"Pieni juttu", description:"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", date:new Date('December 17, 1995 03:24:00'), think:3, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/a/a8/Birdleft.gif"},
+                 {name:"Testi", description:"Testataan", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Altar_of_Santi_Bonifacio_e_Alessio_%28Rome%29.jpg/800px-Altar_of_Santi_Bonifacio_e_Alessio_%28Rome%29.jpg"},
+                 {name:"Kauppa", description:"Kaupan hoito", date:new Date('December 17, 1995 03:24:00'), think:3, physical:1, social:5, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/6/6b/Vrchotovy_Janovice_-_castle_-_main_gate.jpg"},
+                 {name:"Järjestely", description:"Järjestelyä", date:new Date('December 17, 1995 03:24:00'), think:5, physical:3, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/80/Vertical_granite_cliff_at_sunset.jpg"},
+                 {name:"Kuvatesti", description:"Jos kuva puuttuu tai on hajalla", date:new Date('December 17, 1995 03:24:00'), think:3, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"http://ei.toimi.kuva"},
+                 {name:"Lisähomma 1", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Praha_Spanish_Synagogue_Dome_01.jpg"},
+                 {name:"Lisähomma 2", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/fd/A_beautiful_sunrise_is_pictured.jpg"},
+                 {name:"Lisähomma 3", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/87/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2883%29.jpg"},
+                 {name:"Lisähomma 4", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/0/0e/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%28122%29.jpg"},
+                 {name:"Lisähomma 5", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/82/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2894%29.jpg"},
+                 {name:"Lisähomma 6", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/0/0b/Al._Jerozolimskie_%288892282041%29.jpg"},
+                 {name:"Lisähomma 7", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/3/3d/Basin-Olinda%2C_Dandenong_Ranges.jpg"},
+                 {name:"Lisähomma 8", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/5/53/Atlantic_nightfall_-_Flickr_-_Stiller_Beobachter.jpg"},
+                 {name:"Lisähomma 9", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/7/71/Au%C5%A1ta_prie_Neries.JPG"},
+                 {name:"Lisähommake", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/ff/Dawn_at_Mahia_Beach.jpg"},
+                 {name:"Lisähommake", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/f7/Dawn_in_Llanos%2C_Colombia.jpg"}];
 
     afirstsort.onclick = afirstsortFunction
     
+    function recreateTaskList() {
+        // clear tasks
+        while (tasklist.firstChild) {
+            tasklist.removeChild(tasklist.firstChild);
+        }
+        // call function for each task
+        tasks.forEach(addTask);
+        j = shown;
+        showTasks();
+    }
+
     function afirstsortFunction() {
         tasks.sort(function(a, b){
             var x = a.name.toLowerCase();
@@ -32,40 +68,69 @@ window.onload = function(){
             if (x > y) {return 1;}
             return 0;
         }); 
-        // clear tasks
-        while (tasklist.firstChild) {
-            tasklist.removeChild(tasklist.firstChild);
-        }
-        // call function for each task
-        tasks.forEach(addTask);
-        j = 8;
-        showTasks();
+        recreateTaskList();
     }
 
     zfirstsort.onclick = function() {
+        // sorting
         tasks.sort(function(a, b){
             var x = a.name.toLowerCase();
             var y = b.name.toLowerCase();
             if (x > y) {return -1;}
             if (x < y) {return 1;}
             return 0;
-        }); 
-        // clear tasks
-        while (tasklist.firstChild) {
-            tasklist.removeChild(tasklist.firstChild);
-        }
-        // call function for each task
-        tasks.forEach(addTask);
-        j = 8;
-        showTasks();
+        });
+        // recreate
+        recreateTaskList();
     }
-    
-    // clear tasks
-    /* while (tasklist.firstChild) {
-        tasklist.removeChild(tasklist.firstChild);
-    }*/
-    // call function for each task
-    tasks.forEach(addTask);
+
+    datelsort.onclick = function() {
+        // sorting
+        tasks.sort(function(a, b){
+            //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
+            return new Date(b.date) - new Date(a.date);
+        });
+        // recreate
+        recreateTaskList();
+    }
+
+    dateesort.onclick = function() {
+        // sorting
+        tasks.sort(function(a, b){
+            //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
+            return new Date(a.date) - new Date(b.date);
+        });
+        // recreate
+        recreateTaskList();
+    }
+
+    thinksort.onclick = function() {
+        // sorting
+        tasks.sort(function(a, b){
+            return b.think-a.think;
+        });
+        // recreate
+        recreateTaskList();
+    }
+
+    physicalsort.onclick = function() {
+        // sorting
+        tasks.sort(function(a, b){
+            return b.physical-a.physical;
+        });
+        // recreate
+        recreateTaskList();
+    }
+
+    socialsort.onclick = function() {
+        // sorting
+        tasks.sort(function(a, b){
+            return b.social-a.social;
+        });
+        // recreate
+        recreateTaskList();
+    }
+
     // create new task element
     function addTask(item, index) {
         // get DOM end to append
@@ -96,18 +161,32 @@ window.onload = function(){
         description.innerHTML = item.description;
         description.classList.add("collapsible");
 
-        // "expand" function
         task.onclick = function() {
-            if (description.style.display === "block") {
-                task.style.flex = "0 0 400px";
+            //Modal
+            modal.style.display = "block";
+            modalHeader.innerHTML = header.innerHTML;
+            modalImg.src = image.src;
+            modalImg.alt = image.src;
+            descriptionText.innerHTML = item.description;
+            dateText.innerHTML = item.date;
+            phoneText.innerHTML = item.contactphone;
+            emailText.innerHTML = item.contactemail;
+            linkText.innerHTML = item.link;
+            linkText.href = item.link;
+
+            //Alternate expand version
+            /*if (description.style.display === "block") {
+	            description.style.display = "none";
+	            task.style.flex = "0 0 250px";
+	            task.style.height = "200px";
+	        } else {
+	            description.style.display = "block";
+	            task.style.flex = "0 0 500px";
                 task.style.height = "400px";
-                description.style.display = "none";
-            } else {
-                task.style.flex = "0 0 800px";
-                task.style.height = "800px";
-                description.style.display = "block";
-                task.scrollIntoView();
-            }
+			    //Can be used to bring element into view
+			    //Note: Doesn't work very well though, is obnoxious and janky
+			    //task.scrollIntoView();
+			}*/
         };
 
         // append element parts
@@ -126,10 +205,24 @@ window.onload = function(){
         for(i = 0; i<j;i++) {  
             if(typeof tasklist.childNodes[i] !== "undefined") {
                 tasklist.childNodes[i].style.display = "block";
+                morebutton.disabled = false;
+            } else {
+                //Hide it? Disable it?
+                //morebutton.style.visibility = "hidden";
+                //morebutton.style.display = "none";
+                morebutton.disabled = true;
             }
         }
-        j = j+8;
+        j = j+shown;
     }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    } 
 
     afirstsortFunction();
 };
