@@ -211,7 +211,7 @@ header .header-content .header-content-inner p {
     padding: 10px;
   }
 
-  #modal-info-container {
+  #modal-description {
     border-style: groove;
     padding: 10px;
     flex: 50%;
