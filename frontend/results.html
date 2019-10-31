@@ -64,12 +64,21 @@
     <div id="modal-content">
         <div id="modal-header"></div>
         <div id="modal-upper">
-            <div id="modal-image-container">
-                <img class="modal-image" id="modal-image">
+            <div id=modal-upper-left>
+                <div id="modal-image-container">
+                    <img class="modal-image slides" id="modal-image">
+                    <!--<iframe id="modal-video" src="https://www.youtube.com/embed/FiARsQSlzDc">-->
+                    <iframe class="modal-video slides" id="modal-video"  src="https://www.youtube.com/embed/FiARsQSlzDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
             </div>
             <div id="modal-description">
-                    <p id="modal-description-text" class="title-text">Kuvaus</p>
-                    <p id="modal-description-value"></p>
+                <p id="modal-description-text" class="title-text">Kuvaus</p>
+                <p id="modal-description-value"></p>
             </div>
         </div>
         <div id="modal-lower">

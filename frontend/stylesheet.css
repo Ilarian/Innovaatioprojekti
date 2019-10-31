@@ -197,6 +197,11 @@ header .header-content .header-content-inner p {
     height: 50%;
   }
 
+  #modal-upper-left{
+    border-style: groove;
+    flex: 50%;
+  }
+
   #modal-lower{
     height: 50%;
     border-style: groove;
@@ -204,10 +209,8 @@ header .header-content .header-content-inner p {
   }
   
   #modal-image-container {
-    flex: 50%;
     height: 400px;
     align-content: center;
-    border-style: groove;
     padding: 10px;
   }
 
@@ -220,7 +223,13 @@ header .header-content .header-content-inner p {
   #modal-image {
     max-width: 100%;
     max-height: 100%;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #modal-video {
+    max-width: 100%;
+    max-height: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -265,6 +274,39 @@ header .header-content .header-content-inner p {
     }
   } 
 
+  /* Slideshow for multiple images and videos */
+  /* Hide the images by default */
+.slides {
+    display: none;
+  }
+  
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+.next {
+    float: right;
+    border-radius: 3px 0 0 3px;
+  }
+
+.prev {
+    float: left;
+}
+  
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
 /* Villen lisäykset loppuu tähän */
 
 .page-footer {
