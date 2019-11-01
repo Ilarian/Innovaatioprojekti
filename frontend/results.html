@@ -48,10 +48,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2 class="section-heading">Sinulle sopivat tehtävät</h2>
-                <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
-                <div id="tasklist"></div>
-                <button id="more" class="btn btn-primary btn-lg">Lisää</button>
+                <div>
+                    <h2 class="section-heading">Sinulle sopivat tehtävät</h2>
+                    <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
+                    <div id="tasklist"></div>
+                    <button id="more" class="btn btn-primary btn-lg">Lisää</button>
+                </div>
+                <div>
+                    <h2 class="section-heading">Ehdota tehtävää</h2>
+                    <p class="text-light">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
+                    <form>
+                        Tehtävän nimi: <input type="text" name="taskname"><br>
+                        Kuvaus: <textarea name="desc"></textarea><br>
+                        <input type="submit" value="Ehdota">
+                    </form> 
+                </div>
             </div>
         </div>
     </div>
@@ -67,7 +78,6 @@
             <div id=modal-upper-left>
                 <div id="modal-image-container">
                     <img class="modal-image slides" id="modal-image">
-                    <!--<iframe id="modal-video" src="https://www.youtube.com/embed/FiARsQSlzDc">-->
                     <iframe class="modal-video slides" id="modal-video"  src="https://www.youtube.com/embed/FiARsQSlzDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div>

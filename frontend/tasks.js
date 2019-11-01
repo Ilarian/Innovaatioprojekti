@@ -1,6 +1,7 @@
 window.onload = function(){
-    // Iterator limiter for show more
+    // Const so the amount shown can be changed easily
     const shown = 12;
+    // Iterator limiter for show more
     var j = shown;
 
     // Get the modal

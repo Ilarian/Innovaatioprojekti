@@ -1,6 +1,7 @@
 window.onload = function(){
-    // Iterator limiter for show more
+    // Const so the amount shown can be changed easily
     const shown = 12;
+    // Iterator limiter for show more
     var j = shown;
 
     // Get the modal
@@ -18,6 +19,9 @@ window.onload = function(){
     //"show more" button
     var morebutton = document.getElementById("more");
 
+    // results will be received from the quiz
+    var results = {think:5, physical:4, social:2};
+
     // tasks will be received from the database
     var tasks = [{name:"Kassa", description:"Hoida kassaa", date:new Date('December 17, 2019 03:24:00'), think:3, physical:1, social:5, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/3/39/Fat_cat.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Varasto", description:"Hoida varastoa", date:new Date('December 17, 2019 03:24:00'), think:2, physical:5, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/9/9a/HK_TST_HK_Museum_of_Art_-_Fat_horse.JPG", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
@@ -27,11 +31,11 @@ window.onload = function(){
                  {name:"Kauppa", description:"Kaupan hoito", date:new Date('December 17, 1995 03:24:00'), think:3, physical:1, social:5, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/6/6b/Vrchotovy_Janovice_-_castle_-_main_gate.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Järjestely", description:"Järjestelyä", date:new Date('December 17, 1995 03:24:00'), think:5, physical:3, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/80/Vertical_granite_cliff_at_sunset.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Kuvatesti", description:"Jos kuva puuttuu tai on hajalla", date:new Date('December 17, 1995 03:24:00'), think:3, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"http://ei.toimi.kuva", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
-                 {name:"Lisähomma 1", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Praha_Spanish_Synagogue_Dome_01.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
-                 {name:"Lisähomma 2", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/fd/A_beautiful_sunrise_is_pictured.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
-                 {name:"Lisähomma 3", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/87/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2883%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
-                 {name:"Lisähomma 4", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/0/0e/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%28122%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
-                 {name:"Lisähomma 5", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/82/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2894%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
+                 {name:"Lisähomma 1", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:5, physical:4, social:2, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Praha_Spanish_Synagogue_Dome_01.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
+                 {name:"Lisähomma 2", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:5, physical:4, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/fd/A_beautiful_sunrise_is_pictured.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
+                 {name:"Lisähomma 3", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:5, physical:3, social:2, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/87/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2883%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
+                 {name:"Lisähomma 4", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:5, physical:3, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/0/0e/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%28122%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
+                 {name:"Lisähomma 5", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:4, physical:3, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/8/82/Acitrezza_Cyclops_Faraglioni_Sicily_Italy_-_Creative_Commons_by_gnuckx_-_panoramio_%2894%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Lisähomma 6", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/0/0b/Al._Jerozolimskie_%288892282041%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Lisähomma 7", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/3/3d/Basin-Olinda%2C_Dandenong_Ranges.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
                  {name:"Lisähomma 8", description:"Lisää hommia", date:new Date('December 17, 1995 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/5/53/Atlantic_nightfall_-_Flickr_-_Stiller_Beobachter.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/FiARsQSlzDc"},
@@ -50,13 +54,15 @@ window.onload = function(){
         showTasks();
     }
 
-    function resultsortFunction() {
+    // Calculate how close the task is to the results and sort by which ever is closer to the results
+    // https://stackoverflow.com/questions/26922131/sorting-an-array-by-which-value-is-closest-to-1
+    function resultsortFunction(results) {
         tasks.sort(function(a, b){
-            var x = a.name.toLowerCase();
-            var y = b.name.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
-            return 0;
+            // Calculate absolute distance of the task to results and store the sum in a variable
+            var aClosenessToResults = Math.abs(results.think-a.think) + Math.abs(results.physical-a.physical) + Math.abs(results.social-a.social);
+            var bClosenessToResults = Math.abs(results.think-b.think) + Math.abs(results.physical-b.physical) + Math.abs(results.social-b.social);
+            // Determine which comes first by reducting the sum of distances to results. If negative then "a" comes first, if positive then "b" comes first, if 0 then the order is not changed 
+            return aClosenessToResults - bClosenessToResults;
         }); 
         recreateTaskList();
     }
@@ -188,5 +194,5 @@ window.onload = function(){
     } 
 
     //Show results
-    resultsortFunction();
+    resultsortFunction(results);
 };
