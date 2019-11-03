@@ -24,7 +24,7 @@ app.listen(4040, function() {
 });
 
 // GET routes
-//app.use('/', indexRouter); Comment this so default path grabs index.html
+//app.use('/', indexRouter); //Comment this so default path grabs index.html
 app.use('/db', databaseRouter);
 
 // catch 404 and forward to error handler

@@ -13,4 +13,13 @@ router.get('/test', function(req, res, next) {
   
 });
 
+router.delete('/delete/:id', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.delete(req.params.id, sendResponse);
+
+});
+
 module.exports = router;
