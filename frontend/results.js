@@ -15,6 +15,7 @@ window.onload = function(){
     var emailText = document.getElementById("modal-email-value");
     var linkText = document.getElementById("modal-link-value");
     var locationText = document.getElementById("modal-location-value");
+    var suggestForm = document.getElementById("suggest-form");
 
     //"show more" button
     var morebutton = document.getElementById("more");
@@ -192,6 +193,20 @@ window.onload = function(){
         }
         slides[slideIndex-1].style.display = "block";
     } 
+
+    function submitForm() {
+        /*var http = new XMLHttpRequest();
+        http.open("POST", "<<whereverTheFormIsGoing>>", true);
+        http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        var params = "search=" + <<get search value>>; // probably use document.getElementById(...).value
+        http.send(params);
+        http.onload = function() {
+            alert(http.responseText);
+        }*/
+        alert("wahoyye");
+    }
+
+    suggestForm.submit = submitForm;
 
     //Show results
     resultsortFunction(results);
