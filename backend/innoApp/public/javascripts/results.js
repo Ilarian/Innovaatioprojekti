@@ -16,6 +16,10 @@ window.onload = function(){
     var linkText = document.getElementById("modal-link-value");
     var locationText = document.getElementById("modal-location-value");
 
+    //Suggest fields
+    var suggestName = document.getElementById("taskname");
+    var suggestDesc = document.getElementById("desc");
+
     //"Suggest" button
     var suggestbutton = document.getElementById("suggest");
 
@@ -199,7 +203,7 @@ window.onload = function(){
     var xhr = new XMLHttpRequest();
 
     function submitSuggestion() {
-        xhr.open("POST", "db/suggest/"+id, true)
+        xhr.open("POST", "db/suggestion/"+suggestName.value+"&"+suggestDesc.value, true)
         xhr.onload = () =>{
             if(xhr.readyState === 4){
                 if(xhr.status === 200) {
