@@ -17,30 +17,6 @@ a:hover,
 a:focus {
     color: forestgreen;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 5px;
-    overflow: hidden;
-    background-color: #333;
-}
-li {
-    display: inline;
-    float: left;
-}
-
-li a {
-    display: block;
-    padding: 8px;
-    color: #f1f1f1;
-}
-
-/*Vähän tyhmästi implementoitu, en keksiny parempaa ratkasua*/
-li a:hover{
-    color: #f1f1f1;
-}
-
 img {
     max-width: 128px;
     max-height: 128px;
@@ -79,7 +55,7 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
-@media(min-width:768px) {
+/*@media(min-width:768px) {*/
 
     header .header-content {
         position: absolute;
@@ -96,12 +72,29 @@ header .header-content .header-content-inner p {
         margin-left: auto;
         font-size: 18px;
     }
+/*}*/
+.nav-main{
+    visibility: visible;
+}
+.nav-mobile{
+    visibility: hidden;
+}
+
+@media (max-width:768px){
+    .nav-main {
+        visibility: hidden;
+    }
+    .nav-mobile{
+        visibility: visible;
+    }
 }
 
 .intro {
 	color: #fff;
     background-color: yellowgreen;
     padding: 70px 0;
+}
+.intro h2{
     text-align: center;
 }
 
@@ -197,6 +190,11 @@ header .header-content .header-content-inner p {
     height: 50%;
   }
 
+  #modal-upper-left{
+    border-style: groove;
+    flex: 50%;
+  }
+
   #modal-lower{
     height: 50%;
     border-style: groove;
@@ -204,14 +202,12 @@ header .header-content .header-content-inner p {
   }
   
   #modal-image-container {
-    flex: 50%;
     height: 400px;
     align-content: center;
-    border-style: groove;
     padding: 10px;
   }
 
-  #modal-info-container {
+  #modal-description {
     border-style: groove;
     padding: 10px;
     flex: 50%;
@@ -220,7 +216,13 @@ header .header-content .header-content-inner p {
   #modal-image {
     max-width: 100%;
     max-height: 100%;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #modal-video {
+    max-width: 100%;
+    max-height: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -264,6 +266,44 @@ header .header-content .header-content-inner p {
       width: 100%;
     }
   } 
+
+  /* Slideshow for multiple images and videos */
+  /* Hide the images by default */
+.slides {
+    display: none;
+  }
+  
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+.next {
+    float: right;
+    border-radius: 3px 0 0 3px;
+  }
+
+.prev {
+    float: left;
+}
+  
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+#suggest-container {
+    
+}
 
 /* Villen lisäykset loppuu tähän */
 

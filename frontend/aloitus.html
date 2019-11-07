@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
     <title>Aloitussivu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
@@ -14,15 +18,45 @@
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="aloitus.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top nav-main">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="aloitus.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="aloitus.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Mobiilinavibar, ei oikein kunnolla toiminnossa vielä -->
+<nav class="navbar navbar-inverse navbar-fixed-top nav-mobile">
+
+    <a class="navbar-brand" href="aloitus.html">Llinder</a>
+
+    <!-- Collapse nappi -->
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+            class="fas fa-bars fa-1x"></i></span></button>
+
+    <!-- Collapsattava sisältö -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="aloitus.html">Etusivu<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all_tasks.html">Kaikki tehtävät</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Muu</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -33,8 +67,8 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Otsikko</h1>
-            <p>Tekstiä, johdanto, aloitusinfoa jne.</p>
+            <h1>Llinder</h1>
+            <p>Hyvinvoinnin tilojen yksi hyvinvointia tuottava tekijä on tarjota mahdollisuus monipuoliseen toimintaan</p>
             <a href="kysely.html" class="btn btn-primary btn-lg">Aloita</a>
         </div>
     </div>
@@ -45,10 +79,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2 class="section-heading">Tarkempaa tietoa, "intro"</h2>
-                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="section-heading">Mikä?</h2>
+                <p class="text-light">Ajatuksena on, että yhteisössä merkitykselliseen, itse valittuun, sopivasti mitoitettuun toimintaan/tehtävään osallistumalla ihmisen hyvinvointi ja tyytyväisyys lisääntyvät.</p>
                 <br>
-                <p class="text-light">Näitä osioita voi lisätä tarpeen mukaan niin paljon kuin haluaa</p>
+                <p class="text-light">Toimintaan osallistumalla osallisuus yhteisön toimintaan kasvaa ja osallistuja voi koetella kykyjään ja taitojaan.</p>
+                <p class="text-light">Syrjäytyessä osallisuus vähenee ja kykyjen sekä taitojen koettelu kapeutuvat. Kynnys toimintaan osallistumiseen nousee.</p>
+
+                    <li class="text-light">Madaltaa kynnystä lähteä fyysisesti toiminnan äärelle</li>
+                    <li class="text-light">Kohtauttaa toiminnan vahvuuksia ja haasteita Hyvinvoinnin tilan tehtäviin (mätsäys) tarjoamalla tehtävää, joka on kuvattu ja, jota voi lähteä kokeilemaan sovittuna aikana </li>
+                    <li class="text-light">Mahdollisuus tutkia muita tilan tehtäviä </li>
+                    <li class="text-light">Antaa mahdollisuutta itsearviointiin laajemmin (motivaation parantuminen oman kyvykkyyden hahmottamisen kautta).</li>
+
             </div>
         </div>
     </div>

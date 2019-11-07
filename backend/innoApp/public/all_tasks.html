@@ -2,43 +2,37 @@
 <html lang="en">
 
 <head>
-    <title>Kyselyn tulokset</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Kaikki tehtävät</title>
+
     <!-- CSS -->
-    <link href="stylesheet.css" rel="stylesheet">
+    <link href="/stylesheets/stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- JavaScript -->
-    <script src="results.js"></script>
+    <script src="/javascripts/tasks.js"></script>
 </head>
 
 <!-- Navigointi -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="aloitus.html">Llinder</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="aloitus.html">Etusivu</a></li>
+<nav>
+    <div class="navbar">
+        <ul>
+            <li><a>Navigointipalkki</a></li>
+            <!-- <li><button>Nappi</button></li> -->
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="#">Linkki</a></li>
+            <li><a>Jotain muuta</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
-            <li><a href="#">Mitä muuta?</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>
 
 <body>
+
 <!-- Header -->
 <!--<header>
     <div class="header-content">
@@ -54,23 +48,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <div>
-                    <h2 class="section-heading">Sinulle sopivat tehtävät</h2>
-                    <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
-                    <div id="tasklist"></div>
-                    <button id="more" class="btn btn-primary btn-lg">Lisää</button>
+                <h2 class="section-heading">Tehtävät</h2>
+                <div class="sorting">
+                    <p class="sort-content">Järjestä:</p>
+                    <button id="afirst" class="btn btn-primary btn-lg sort-content">A-Ö</button>
+                    <button id="zfirst" class="btn btn-primary btn-lg sort-content">Ö-A</button>
+                    <button id="dateLatest" class="btn btn-primary btn-lg sort-content">Päivämäärä (Myöhäisin)</button>
+                    <button id="dateEarliest" class="btn btn-primary btn-lg sort-content">Päivämäärä (Aikaisin)</button>
+                    <button id="think" class="btn btn-primary btn-lg sort-content">Ajattelu</button>
+                    <button id="physical" class="btn btn-primary btn-lg sort-content">Fyysisyys</button>
+                    <button id="social" class="btn btn-primary btn-lg sort-content">Sosiaalisuus</button>
                 </div>
-                <div>
-                    <h2 class="section-heading">Ehdota tehtävää</h2>
-                    <p class="text-light">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
-                    <div id="suggest-container">
-                        <p class="text-light">Tehtävän nimi:</p> 
-                        <input id="taskname" type="text" name="taskname"><br>
-                        <p class="text-light">Kuvaus:</p> 
-                        <textarea id="desc" name="desc"></textarea><br>
-                        <button id="suggest" class="btn btn-primary btn-lg">Ehdota</button>
-                    </div> 
-                </div>
+                <!-- Muodostetaan "tehtäväkortit" JavaScriptilla -->
+                <div id="tasklist"></div>
+                <button id="more" class="btn btn-primary btn-lg">Lisää</button>
             </div>
         </div>
     </div>
