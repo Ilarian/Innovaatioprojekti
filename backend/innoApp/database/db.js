@@ -51,7 +51,8 @@ exports.add = function(body){
     });
     connection.connect();
 
-    connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value) VALUES ( \''+body.Nimi+'\', \''+body.Kuvaus+'\', '+body.Ajattelu+', '+body.Fyysisyys+', '+body.Sosiaalisuus+')', function (err, rows, fields) {
+    connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location, email, phone, link, date) VALUES' +
+        ' ( \''+body.Nimi+'\', \''+body.Kuvaus+'\', '+body.Ajattelu+', '+body.Fyysisyys+', '+body.Sosiaalisuus+', \''+body.Paikka+'\', \''+body.Sähköposti+'\', \''+body.Puhelin+'\', \''+body.Linkki +'\', \''+body.Pvm+'\' )', function (err, rows, fields) {
         if (err) throw err;
     });
 
