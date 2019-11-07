@@ -33,6 +33,30 @@
     <p>Täällä voit lisätä, poistaa ja muokata tehtäviä</p>
     <div id="tehtävälista">
 
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Lisää tehtävä</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form method="POST" action="db/add">
+                    <p>Lisää tehtävän nimi:</p>
+                    <input type="text" name="Nimi">
+                    <p>Lisää tehtävän kuvaus:</p>
+                    <input type="text" name="Kuvaus">
+                    <p>Lisää tehtävän attribuutit numeroina:</p>
+                    <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5">
+                    <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5">
+                    <p>Sosiaalisuus</p> <input type="number" name="Sosiaalisuus" min="0" max="5">
+                    <input type="submit" value="Lisää">
+                </form>
+            </div>
+
+        </div>
+
     </div>
     <div id='dbresponse'></div>
 </div>

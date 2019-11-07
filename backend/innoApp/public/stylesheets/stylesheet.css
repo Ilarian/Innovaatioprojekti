@@ -25,16 +25,7 @@ ul {
     overflow: hidden;
     background-color: #333;
 }
-li {
-    display: inline;
-    float: left;
-}
 
-li a {
-    display: block;
-    padding: 8px;
-    color: #f1f1f1;
-}
 
 /*Vähän tyhmästi implementoitu, en keksiny parempaa ratkasua*/
 li a:hover{

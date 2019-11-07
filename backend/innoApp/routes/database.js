@@ -13,6 +13,8 @@ router.get('/test', function(req, res, next) {
   
 });
 
+
+
 router.delete('/delete/:id', function(req, res) {
   function sendResponse(result){
     res.send(result);
@@ -20,6 +22,11 @@ router.delete('/delete/:id', function(req, res) {
 
   db.delete(req.params.id, sendResponse);
 
+});
+
+router.post('/add', function(req, res) {
+  db.add(req.body)
+  res.redirect('/admin.html')
 });
 
 module.exports = router;
