@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobMatch`.`image` ;
 
 CREATE TABLE IF NOT EXISTS `jobMatch`.`image` (
-  `image_id` INT NOT NULL,
+  `image_id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(255) NULL,
   `task_id` INT NOT NULL,
   PRIMARY KEY (`image_id`),

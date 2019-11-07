@@ -34,12 +34,7 @@ router.get('/suggestion/', function(req, res) {
 
 
 router.delete('/delete/:id', function(req, res) {
-  function sendResponse(result){
-    res.send(result);
-  }
-
-  db.delete(req.params.id, sendResponse);
-
+  db.delete(req.params.id);
 });
 
 router.post('/add', function(req, res) {

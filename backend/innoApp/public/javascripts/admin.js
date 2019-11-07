@@ -69,6 +69,9 @@ function deleteRequest(id){
         }
     }
     xhr.send();
+
+    //päivittää sivun
+    window.location.href = "/admin.html"
 }
 
 function addRequest() {
@@ -96,6 +99,8 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -121,3 +126,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+//Avaa defaultina tehtävät
+document.getElementById("defaultOpen").click();

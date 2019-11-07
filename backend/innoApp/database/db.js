@@ -25,7 +25,7 @@ exports.test = function(callback) {
     connection.end()
 };
 
-exports.delete = function(id, callback) {
+exports.delete = function(id) {
     var connection = mysql.createConnection({
         host: 'localhost', //Address of the database
         user: 'root', //User to login with
@@ -36,7 +36,6 @@ exports.delete = function(id, callback) {
 
     connection.query('DELETE FROM task WHERE task_id =' + id, function (err, rows, fields) {
         if (err) throw err;
-        callback(id + " deleted");
     });
 
     connection.end()
