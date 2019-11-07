@@ -17,30 +17,6 @@ a:hover,
 a:focus {
     color: forestgreen;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 5px;
-    overflow: hidden;
-    background-color: #333;
-}
-li {
-    display: inline;
-    float: left;
-}
-
-li a {
-    display: block;
-    padding: 8px;
-    color: #f1f1f1;
-}
-
-/*Vähän tyhmästi implementoitu, en keksiny parempaa ratkasua*/
-li a:hover{
-    color: #f1f1f1;
-}
-
 img {
     max-width: 128px;
     max-height: 128px;
@@ -79,7 +55,7 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
-@media(min-width:768px) {
+/*@media(min-width:768px) {*/
 
     header .header-content {
         position: absolute;
@@ -96,12 +72,29 @@ header .header-content .header-content-inner p {
         margin-left: auto;
         font-size: 18px;
     }
+/*}*/
+.nav-main{
+    visibility: visible;
+}
+.nav-mobile{
+    visibility: hidden;
+}
+
+@media (max-width:768px){
+    .nav-main {
+        visibility: hidden;
+    }
+    .nav-mobile{
+        visibility: visible;
+    }
 }
 
 .intro {
 	color: #fff;
     background-color: yellowgreen;
     padding: 70px 0;
+}
+.intro h2{
     text-align: center;
 }
 

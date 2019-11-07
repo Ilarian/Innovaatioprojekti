@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
     <title>Kyselyn tulokset</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
@@ -18,21 +22,23 @@
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="aloitus.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="aloitus.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="aloitus.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>
 
 <body>
-
 <!-- Header -->
 <!--<header>
     <div class="header-content">
