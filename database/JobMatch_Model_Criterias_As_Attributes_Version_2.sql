@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `jobMatch`.`image` (
   PRIMARY KEY (`image_id`),
   FOREIGN KEY (`task_id`)
     REFERENCES `jobMatch`.`task` (`task_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
