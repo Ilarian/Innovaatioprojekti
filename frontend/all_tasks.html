@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
     <title>Kaikki tehtävät</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
@@ -18,21 +22,23 @@
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="aloitus.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="aloitus.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="aloitus.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>
 
 <body>
-
 <!-- Header -->
 <!--<header>
     <div class="header-content">
@@ -74,9 +80,23 @@
     <div id="modal-content">
         <div id="modal-header"></div>
         <div id="modal-upper">
-            <div id="modal-image-container">
-                <img class="modal-image" id="modal-image">
+            <div id=modal-upper-left>
+                <div id="modal-image-container">
+                    <img class="modal-image slides" id="modal-image">
+                    <iframe class="modal-video slides" id="modal-video"  src="https://www.youtube.com/embed/FiARsQSlzDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
             </div>
+            <div id="modal-description">
+                <p id="modal-description-text" class="title-text">Kuvaus</p>
+                <p id="modal-description-value"></p>
+            </div>
+        </div>
+        <div id="modal-lower">
             <div id="modal-info-container">
                 <div id="modal-date">
                     <p id="modal-date-text" class="title-text">Päivämäärä ja aika:</p>
@@ -90,16 +110,14 @@
                     <p id="modal-email-text" class="title-text">Sähköposti:</p>
                     <p id="modal-email-value"></p>
                 </div>
+                <div id="modal-location">
+                    <p id="modal-location-text" class="title-text">Sijainti:</p>
+                    <p id="modal-location-value"></p>
+                </div>
                 <div id="modal-link">
                     <p id="modal-link-text" class="title-text">Lisätieto linkki:</p>
                     <a id="modal-link-value" target="_blank"></a>
                 </div>
-            </div>
-        </div>
-        <div id="modal-lower">
-            <div id="modal-description">
-                <p id="modal-description-text" class="title-text">Kuvaus</p>
-                <p id="modal-description-value"></p>
             </div>
         </div>
     </div>

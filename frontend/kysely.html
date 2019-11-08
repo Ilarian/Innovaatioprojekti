@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
     <title>Kysely</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link href="stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
@@ -14,48 +18,77 @@
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="aloitus.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="aloitus.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="aloitus.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>
 
 <body class="body">
+<!-- väliaikaiset br:ät -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 	<form>
   
   <table style="width:100%">
         <tr>
-          <th><p class="alignleft">Fyysisyys</p></th>
-          <th><p class="aligncenter">Pulmanratkaisu</p></th> 
-          <th><p class="alignright">Sosiaalisuus</p></th>
+          <th></th>
+          <th style="text-align:center"><p class="valiotsikot">Fyysisyys</p></th>
+          <th></th>
+          <th style="text-align:center"><p class="valiotsikot">Pulmanratkaisu</p></th> 
+          <th></th>
+          <th style="text-align:center"><p class="valiotsikot">Sosiaalisuus</p></th>
+          <th></th>
         </tr>
         <tr>
-          <td><img class="alignleft" src="https://cdn4.iconfinder.com/data/icons/sports-activities-1/24/Arm-512.png"></td>
-          <td><img class="aligncenter" src="https://cdn1.iconfinder.com/data/icons/monocromatic-vol-1/24/mind-512.png"> </td>
-          <td><img class="alignright" src="https://cdn2.iconfinder.com/data/icons/creative-head/100/Head__10-512.png"></td>
+          <td>&nbsp;</td>
+          <td style="text-align:center"><img class="alignleft" src="https://cdn4.iconfinder.com/data/icons/sports-activities-1/24/Arm-512.png"></td>
+          <td></td>
+          <td style="text-align:center"><img class="aligncenter" src="https://cdn1.iconfinder.com/data/icons/monocromatic-vol-1/24/mind-512.png"> </td>
+          <td></td>
+          <td style="text-align:center"><img class="alignright" src="https://cdn2.iconfinder.com/data/icons/creative-head/100/Head__10-512.png"></td>
+          <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><input type="text" size="1" class="aligncentersmall"  name="amountInput" min="1" max="5" value="3" oninput="this.form.amountRange.value=this.value" /></td>
-          <td><input type="text" size="1" class="aligncentersmall" name="amountInput2" min="1" max="5" value="3" oninput="this.form.amountRange2.value=this.value" /></td>
-          <td><input type="text" size="1" class="aligncentersmall" name="amountInput3" min="1" max="5" value="3" oninput="this.form.amountRange3.value=this.value" /></td>
+          <td>&nbsp;</td>
+          <td style="text-align:center"><input type="text" readonly="true" size="1" class="aligncentersmall"  name="amountInput" min="1" max="5" value="3" oninput="this.form.amountRange.value=this.value" /></td>
+          <td></td>
+          <td style="text-align:center"><input type="text" readonly="true" size="1" class="aligncentersmall" name="amountInput2" min="1" max="5" value="3" oninput="this.form.amountRange2.value=this.value" /></td>
+          <td></td>
+          <td style="text-align:center"><input type="text" readonly="true" size="1" class="aligncentersmall" name="amountInput3" min="1" max="5" value="3" oninput="this.form.amountRange3.value=this.value" /></td>
+          <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><input type="range" size="5" class="alignleft" name="amountRange" min="1" max="5" value="3" oninput="this.form.amountInput.value=this.value" /> </td>
-          <td><input type="range" size="5" class="aligncenter" name="amountRange2" min="1" max="5" value="3" oninput="this.form.amountInput2.value=this.value" /> </td>
-          <td><input type="range" size="5" class="alignright" name="amountRange3" min="1" max="5" value="3" oninput="this.form.amountInput3.value=this.value" /></td>
+          <td>&nbsp;</td>
+          <td><input type="range" size="5" class="slider" name="amountRange" min="1" max="5" value="3" oninput="this.form.amountInput.value=this.value" /></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><input type="range" size="5" class="slider" name="amountRange2" min="1" max="5" value="3" oninput="this.form.amountInput2.value=this.value" /></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><input type="range" size="5" class="slider" name="amountRange3" min="1" max="5" value="3" oninput="this.form.amountInput3.value=this.value" /></td>
+          <td>&nbsp;</td>
         </tr>
   </table>
      <p align="center">
-      <a href="results.html"><button type="button" class="button">Valmis</button></a>
+     <br>
+      <a href="results.html"><button type="button" class="button">HAE</button></a>
      </p>
 
+        <br>
         <br>
         <br>
         <br>

@@ -5,8 +5,8 @@
     <title>Title</title>
 
     <!-- CSS -->
-    <link href="stylesheets/stylesheet.css" rel="stylesheet">
     <link href="stylesheets/admin.css" rel="stylesheet" type="text/css">
+
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -15,9 +15,10 @@
 
 <!-- Tab links -->
 <div class="tab">
+    <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'tehtävät')">Tehtävät</button>
     <button class="tablinks" onclick="openTab(event, 'ohjeet')">Ohjeet</button>
-    <button class="tablinks" onclick="openTab(event, 'kysely')">Kysely</button>
-    <button class="tablinks" onclick="openTab(event, 'tehtävät')">Tehtävät</button>
+    <!-- <button class="tablinks" onclick="openTab(event, 'kysely')">Kysely</button> -->
+
 </div>
 
 <!-- Tab content -->
@@ -32,6 +33,35 @@
 <div id="tehtävät" class="tabcontent">
     <p>Täällä voit lisätä, poistaa ja muokata tehtäviä</p>
     <div id="tehtävälista">
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Lisää tehtävä</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form method="POST" action="db/add">
+                    <p>Lisää tehtävän nimi:</p>
+                    <input type="text" name="Nimi">
+                    <p>Lisää tehtävän kuvaus:</p>
+                    <input type="text" name="Kuvaus">
+                    <p>Lisää tehtävän attribuutit numeroina:</p>
+                    <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5">
+                    <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5">
+                    <p>Sosiaalisuus</p> <input type="number" name="Sosiaalisuus" min="0" max="5">
+                    <p>Paikka</p> <input type="text" name="Paikka">
+                    <p>Sähköposti</p> <input type="email" name="Sähköposti">
+                    <p>Puh. nro.</p> <input type="tel" name="Puhelin">
+                    <p>Linkki</p> <input type="text" name="Linkki">
+                    <p>Pvm.</p> <input type="date" name="Pvm">
+                    <input type="submit" value="Lisää">
+                </form>
+            </div>
+
+        </div>
 
     </div>
     <div id='dbresponse'></div>

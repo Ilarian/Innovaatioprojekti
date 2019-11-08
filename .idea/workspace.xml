@@ -2,9 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d6684c4-ab06-4bb5-8472-8a8a52972efb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/all_tasks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/javascripts/results.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/javascripts/tasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/kysely.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/innoApp/public/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.mwb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.mwb.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/database/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/database/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/innoApp/routes/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/routes/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/innoApp/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SQL query dump.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/SQL query dump.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Tietokanta huolia.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/Tietokanta huolia.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/all_tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/all_tasks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/aloitus.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/aloitus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/kysely.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/kysely.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tasks.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,22 +107,26 @@
         <counts>
           <entry key="html" value="2" />
           <entry key="js" value="5" />
+          <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="5" />
+          <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="111" />
+          <entry key="js" value="113" />
+          <entry key="sql" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="111" />
+          <entry key="JavaScript" value="113" />
+          <entry key="SQL" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -108,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="442">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -117,17 +145,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
+            <state relative-caret-position="1505">
+              <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            <state relative-caret-position="391">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -182,6 +219,8 @@
         <option value="$PROJECT_DIR$/stylesheet.css" />
         <option value="$PROJECT_DIR$/backend/innoApp/routes/index.js" />
         <option value="$PROJECT_DIR$/backend/innoApp/routes/database.js" />
+        <option value="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" />
+        <option value="$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.sql" />
       </list>
     </option>
   </component>
@@ -223,6 +262,27 @@
               <item name="Innovaatioprojekti" type="b2602c69:ProjectViewProjectNode" />
               <item name="Innovaatioprojekti" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Innovaatioprojekti" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Innovaatioprojekti" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="innoApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Innovaatioprojekti" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Innovaatioprojekti" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="innoApp" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Innovaatioprojekti" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Innovaatioprojekti" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="innoApp" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Innovaatioprojekti" type="b2602c69:ProjectViewProjectNode" />
@@ -285,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12889000" />
+    <option name="totallyTimeSpent" value="13108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -294,7 +354,7 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18389262" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.22684564" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.30738255" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -318,6 +378,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -332,15 +396,8 @@
     <entry file="file://$PROJECT_DIR$/stylesheet.css" />
     <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
+        <state relative-caret-position="442">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -362,8 +419,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/database.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="391">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1505">
+          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
         </state>
       </provider>
     </entry>

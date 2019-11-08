@@ -5,3 +5,6 @@ INSERT INTO image (url, task_id) VALUES ('www.localhost.com', 1); (Note: it's go
 INSERT INTO question (name, min_value_desc, max_value_desc) VALUES ('Arvioi sosiaalisuus', 'Ei sosiaalinen', 'Sosiaalinen');
 Select table contents:
 SELECT * FROM task;
+
+Uusi db:
+INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location, email, phone, link, date ) VALUES ('testtask', 'testing tasks', 1, 2, 3, 'Helsinki', 'testi@gmail.com', '045123456', 'google.com', '2020-04-01');
