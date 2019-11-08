@@ -18,7 +18,7 @@ xhr.onload = function (e) {
                 //Looppaa rivin arvot, jättäen id arvon pois ja lisää tiedot listaan
                 for(var j = 1; j < values.length; j++){
                     var li = document.createElement("li");
-                    li.appendChild(document.createTextNode(values[j]));
+                    li.appendChild(document.createTextNode(listText(j) + values[j]));
                     ul.appendChild(li);
                 }
                 dbresponse.appendChild(ul);
@@ -43,6 +43,55 @@ xhr.onerror = function (e) {
     console.error(xhr.statusText);
 };
 xhr.send(null);
+
+
+function listText(listNum){
+    let text;
+
+    switch(listNum){
+        case 1:
+            text = "Tehtävän nimi: ";
+            break;
+        case 2:
+            text = "Tehtävän kuvaus: ";
+            break;
+
+        case 3:
+            text = "Ajattelu: ";
+            break;
+
+        case 4:
+            text = "Fyysisyys_ ";
+            break;
+
+        case 5:
+            text = "Sosiaalisuus: ";
+            break;
+
+        case 6:
+            text = "Paikka: ";
+            break;
+
+        case 7:
+            text = "Sähköposti: ";
+            break;
+
+        case 8:
+            text = "Puh. nro: ";
+            break;
+
+        case 9:
+            text = "Linkki: ";
+            break;
+
+        case 10:
+            text = "Pvm: ";
+            break;
+    }
+
+    return text;
+}
+
 
 
 
