@@ -3,30 +3,35 @@
 
 <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kyselyn tulokset</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
     <link href="/stylesheets/stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap -->
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- JavaScript -->
     <script src="/javascripts/results.js"></script>
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="index.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top nav-main">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>

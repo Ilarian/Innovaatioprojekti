@@ -22,7 +22,7 @@ router.post('/suggestion/:name&:desc', function(req, res) {
 
 });
 
-router.get('/suggestion/', function(req, res) {
+router.get('/suggestion', function(req, res) {
   function sendResponse(result){
     res.send(result);
   }
@@ -40,6 +40,15 @@ router.delete('/delete/:id', function(req, res) {
 router.post('/add', function(req, res) {
   db.add(req.body)
   res.redirect('/admin.html')
+});
+
+router.get('/task', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getTask(sendResponse);
+
 });
 
 module.exports = router;

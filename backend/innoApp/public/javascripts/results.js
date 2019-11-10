@@ -4,6 +4,8 @@ window.onload = function(){
     // Iterator limiter for show more
     var j = shown;
 
+    var xhr = new XMLHttpRequest();
+
     // Get the modal
     var modal = document.getElementById("modal");
     var modalHeader = document.getElementById("modal-header");
@@ -30,6 +32,22 @@ window.onload = function(){
     var results = {think:5, physical:4, social:2};
 
     // tasks will be received from the database
+    function getTask() {
+        xhr.open("GET", "db/task", true)
+        xhr.onload = () =>{
+            if(xhr.readyState === 4){
+                if(xhr.status === 200) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    getTask();
+
     var tasks = [{name:"Kassa", description:"Hoida kassaa", date:new Date('December 17, 2019 03:24:00'), think:3, physical:1, social:5, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/3/39/Fat_cat.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/eI9Su338j30"},
                  {name:"Varasto", description:"Hoida varastoa", date:new Date('December 17, 2019 03:24:00'), think:2, physical:5, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/9/9a/HK_TST_HK_Museum_of_Art_-_Fat_horse.JPG", location:"Annalan huvila", video:"https://www.youtube.com/embed/eI9Su338j30"},
                  {name:"Homma", description:"Hoida homma", date:new Date('December 17, 2019 03:24:00'), think:1, physical:1, social:1, contactphone:"+3580123456", contactemail:"test@email.com", link:"https://www.google.fi/", image:"https://upload.wikimedia.org/wikipedia/commons/f/f2/Seal_of_Approval_of_more_Seals_%2837503982020%29.jpg", location:"Annalan huvila", video:"https://www.youtube.com/embed/eI9Su338j30"},
@@ -199,8 +217,6 @@ window.onload = function(){
         }
         slides[slideIndex-1].style.display = "block";
     } 
-
-    var xhr = new XMLHttpRequest();
 
     function submitSuggestion() {
         xhr.open("POST", "db/suggestion/"+suggestName.value+"&"+suggestDesc.value, true)
