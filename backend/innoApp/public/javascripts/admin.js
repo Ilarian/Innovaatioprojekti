@@ -6,7 +6,7 @@ xhr.open("GET", "/db/test", true);
 xhr.onload = function (e) {
     if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-            var dbresponse = document.getElementById('tehtävälista');
+            var tehtävälista = document.getElementById('tehtävälista');
             var responseText = JSON.parse(xhr.responseText);
 
             //Looppaa tietokannasta saadut rivit
@@ -18,20 +18,29 @@ xhr.onload = function (e) {
                 //Looppaa rivin arvot, jättäen id arvon pois ja lisää tiedot listaan
                 for(var j = 1; j < values.length; j++){
                     var li = document.createElement("li");
+                    //listText(j) lisää kuvauksen datan eteen
                     li.appendChild(document.createTextNode(listText(j) + values[j]));
                     ul.appendChild(li);
                 }
-                dbresponse.appendChild(ul);
+                tehtävälista.appendChild(ul);
 
                 //Luodaan taskin loppuun poista-painike.
                 let removeBtn = document.createElement("button");
                 removeBtn.setAttribute("class", "remove");
                 removeBtn.setAttribute("value", ""+ values[0]);
-                removeBtn.innerHTML = "Poista tämä tehtävä";
+                removeBtn.innerHTML = "Poista";
 
-                dbresponse.appendChild(removeBtn);
+                //Luodaan taskin loppuun muokkaa-painike.
+                let modifyBtn = document.createElement("button");
+                modifyBtn.setAttribute("class", "modify");
+                modifyBtn.setAttribute("value", ""+values[0]);
+                modifyBtn.innerHTML = "Muokkaa";
+
+                tehtävälista.appendChild(removeBtn);
+                tehtävälista.appendChild(modifyBtn);
             }
             setClickListenerRemove();
+            setClickListenerModify();
 
 
         } else {
@@ -61,7 +70,7 @@ function listText(listNum){
             break;
 
         case 4:
-            text = "Fyysisyys_ ";
+            text = "Fyysisyys: ";
             break;
 
         case 5:
@@ -103,6 +112,42 @@ function setClickListenerRemove() {
             deleteRequest(removeBtns[i].value);
         })
     }
+}
+
+function setClickListenerModify() {
+    let modifyBtns = document.getElementsByClassName("modify");
+    for(let i = 0; i < modifyBtns.length; i++){
+        modifyBtns[i].addEventListener("click", () => {
+            modifyRequest(modifyBtns[i].value);
+        })
+    }
+}
+
+function modifyRequest(id){
+    xhr.open("GET", "/db/getTask/"+id, true)
+    xhr.onload = () => {
+        if (xhr.readyState === 4 && xhr.status === 200){
+            let dbTasks = JSON.parse(xhr.responseText);
+            document.getElementById("mId").defaultValue = dbTasks[0].task_id;
+            document.getElementById("mNimi").defaultValue = dbTasks[0].name;
+            document.getElementById("mKuvaus").defaultValue = dbTasks[0].description;
+            document.getElementById("mFyysisyys").defaultValue = dbTasks[0].fysiikka_value;
+            document.getElementById("mSosiaalisuus").defaultValue = dbTasks[0].sosiaalisuus_value;
+            document.getElementById("mAjattelu").defaultValue = dbTasks[0].ajattelu_value;
+            document.getElementById("mPaikka").defaultValue = dbTasks[0].location;
+            document.getElementById("mSähköposti").defaultValue = dbTasks[0].email;
+            document.getElementById("mPuhelin").defaultValue = dbTasks[0].phone;
+            //TODO korjaa pvm formaatti
+            document.getElementById("mPvm").defaultValue = dbTasks[0].date;
+            document.getElementById("mLinkki").defaultValue = dbTasks[0].link;
+
+
+        }else {
+            console.error(xhr.statusText);
+        }
+    }
+    xhr.send();
+    modifyModal.style.display = "block"
 }
 
 function deleteRequest(id){
@@ -151,13 +196,16 @@ function openTab(evt, tabName) {
 
 
 // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal")
+let modifyModal = document.getElementById("modifyModal");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -169,12 +217,23 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
+span2.onclick = function() {
+    modifyModal.style.display = "none";
+}
+
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+    if (event.target == modifyModal) {
+        modifyModal.style.display = "none";
+    }
 }
+
+
+
 
 //Avaa defaultina tehtävät
 document.getElementById("defaultOpen").click();

@@ -2,16 +2,23 @@ var mysql = require('mysql');
 var exports = module.exports = {};
 
 
-//Test function to test exportation of the db functions
-//and the connection to the desired db.
-exports.test = function(callback) {
-    //Needs to be changed when db has been established
-    var connection = mysql.createConnection({
+
+function connectDb() {
+    let connection = mysql.createConnection({
         host: 'localhost', //Address of the database
         user: 'root', //User to login with
         password: 'juuri', //Password used to go with the user
         database: 'jobMatch' //Database name within the address
     });
+    return connection;
+}
+
+
+//Test function to test exportation of the db functions
+//and the connection to the desired db.
+exports.test = function(callback) {
+    //Needs to be changed when db has been established
+    let connection = connectDb();
     connection.connect();
 
     // Needs to be changed to match the table in the desired db
@@ -26,12 +33,7 @@ exports.test = function(callback) {
 };
 
 exports.delete = function(id) {
-    var connection = mysql.createConnection({
-        host: 'localhost', //Address of the database
-        user: 'root', //User to login with
-        password: 'juuri', //Password used to go with the user
-        database: 'jobMatch' //Database name within the address
-    });
+    let connection = connectDb();
     connection.connect();
 
     connection.query('DELETE FROM task WHERE task_id =' + id, function (err, rows, fields) {
@@ -42,12 +44,7 @@ exports.delete = function(id) {
 };
 
 exports.add = function(body){
-    var connection = mysql.createConnection({
-        host: 'localhost', //Address of the database
-        user: 'root', //User to login with
-        password: 'juuri', //Password used to go with the user
-        database: 'jobMatch' //Database name within the address
-    });
+    let connection = connectDb();
     connection.connect();
 
     connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location, email, phone, link, date) VALUES' +
@@ -60,12 +57,7 @@ exports.add = function(body){
 
 // Used to post suggestions into DB
 exports.postSuggestion = function(name, desc, callback) {
-    var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'juuri',
-        database: 'jobMatch'
-    });
+    let connection = connectDb();
 
     connection.connect();
 
@@ -81,14 +73,9 @@ exports.postSuggestion = function(name, desc, callback) {
 // Gets suggestion from DB to show them in the admin panel (Note: Might be best to unify all get statements into one statement with a table variable)
 exports.getSuggestion = function(callback) {
     //Needs to be changed when db has been established
-    var connection = mysql.createConnection({
-    host: 'localhost', //Address of the database
-    user: 'root', //User to login with
-    password: 'juuri', //Password used to go with the user
-    database: 'jobMatch' //Database name within the address
-    })
+    let connection = connectDb();
 
-    connection.connect()
+    connection.connect();
 
     connection.query('SELECT * FROM suggestion', function (err, rows, fields) {
     if (err) throw err
@@ -96,5 +83,30 @@ exports.getSuggestion = function(callback) {
     callback(rows);
     })
 
-    connection.end()
+    connection.end();
 }
+
+exports.getTask = function(id, callback){
+
+    let connection = connectDb();
+    connection.connect();
+
+    connection.query('SELECT * FROM task WHERE task_id = '+id, function(err, rows, fields) {
+        if(err) throw err;
+        callback(rows);
+    });
+    connection.end();
+};
+
+exports.updateTask = (body) => {
+    let connection = connectDb();
+    connection.connect();
+
+    connection.query('UPDATE task SET name = ?, description = ?, ajattelu_value = ?, fysiikka_value = ?, sosiaalisuus_value = ?, location = ?, email = ?, phone = ?, link = ?, date = ? WHERE task_id = ? '
+        , [body.Nimi, body.Kuvaus, body.Ajattelu, body.Fyysisyys, body.Sosiaalisuus, body.Paikka,
+            body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, body.Id], function(err, rows, fields){
+            if(err) throw err;
+        });
+    connection.end();
+
+};

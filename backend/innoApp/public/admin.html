@@ -44,10 +44,9 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form method="POST" action="db/add">
-                    <p>Lisää tehtävän nimi:</p>
-                    <input type="text" name="Nimi">
-                    <p>Lisää tehtävän kuvaus:</p>
-                    <input type="text" name="Kuvaus">
+                    <h2>Olet lisäämässä tehtävän</h2>
+                    <p>Lisää tehtävän nimi:</p> <input type="text" name="Nimi">
+                    <p>Lisää tehtävän kuvaus:</p> <input type="text" name="Kuvaus">
                     <p>Lisää tehtävän attribuutit numeroina:</p>
                     <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5">
                     <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5">
@@ -58,6 +57,31 @@
                     <p>Linkki</p> <input type="text" name="Linkki">
                     <p>Pvm.</p> <input type="date" name="Pvm">
                     <input type="submit" value="Lisää">
+                </form>
+            </div>
+
+        </div>
+
+        <div id="modifyModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form method="POST" action="db/update">
+                    <h2>Olet muokkaamassa tätä tehtävää</h2>
+                    <input id="mId" type="hidden" type="number" name="Id">
+                    <p>Lisää tehtävän nimi:</p> <input id="mNimi" type="text" name="Nimi">
+                    <p>Lisää tehtävän kuvaus:</p> <input id="mKuvaus" type="text" name="Kuvaus">
+                    <p>Lisää tehtävän attribuutit numeroina:</p>
+                    <p>Fyysisyys</p> <input id="mFyysisyys" type="number" name="Fyysisyys" min="0" max="5">
+                    <p>Ajattelu</p> <input id="mAjattelu" type="number" name="Ajattelu" min="0" max="5">
+                    <p>Sosiaalisuus</p> <input id="mSosiaalisuus" type="number" name="Sosiaalisuus" min="0" max="5">
+                    <p>Paikka</p> <input id="mPaikka" type="text" name="Paikka">
+                    <p>Sähköposti</p> <input id="mSähköposti" type="email" name="Sähköposti">
+                    <p>Puh. nro.</p> <input id="mPuhelin" type="tel" name="Puhelin">
+                    <p>Linkki</p> <input id="mLinkki" type="text" name="Linkki">
+                    <p>Pvm.</p> <input id="mPvm" type="date" name="Pvm">
+                    <input type="submit" value="Muokkaa">
                 </form>
             </div>
 
