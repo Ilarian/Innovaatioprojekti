@@ -45,17 +45,17 @@
                 <span class="close">&times;</span>
                 <form method="POST" action="db/add">
                     <h2>Olet lisäämässä tehtävän</h2>
-                    <p>Lisää tehtävän nimi:</p> <input type="text" name="Nimi">
-                    <p>Lisää tehtävän kuvaus:</p> <input type="text" name="Kuvaus">
+                    <p>Lisää tehtävän nimi:</p> <input type="text" name="Nimi" required>
+                    <p>Lisää tehtävän kuvaus:</p> <textarea type="text" class="kuvaus" name="Kuvaus" required></textarea>
                     <p>Lisää tehtävän attribuutit numeroina:</p>
-                    <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5">
-                    <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5">
-                    <p>Sosiaalisuus</p> <input type="number" name="Sosiaalisuus" min="0" max="5">
-                    <p>Paikka</p> <input type="text" name="Paikka">
-                    <p>Sähköposti</p> <input type="email" name="Sähköposti">
-                    <p>Puh. nro.</p> <input type="tel" name="Puhelin">
-                    <p>Linkki</p> <input type="text" name="Linkki">
-                    <p>Pvm.</p> <input type="date" name="Pvm">
+                    <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5" required>
+                    <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5" required>
+                    <p>Sosiaalisuus</p> <input type="number" name="Sosiaalisuus" min="0" max="5" required>
+                    <p>Paikka</p> <input type="text" name="Paikka" required>
+                    <p>Sähköposti</p> <input type="email" name="Sähköposti" required>
+                    <p>Puh. nro.</p> <input type="tel" name="Puhelin" required>
+                    <p>Linkki</p> <input type="text" name="Linkki" required>
+                    <p>Pvm.</p> <input type="date" name="Pvm" required>
                     <input type="submit" value="Lisää">
                 </form>
             </div>
@@ -70,17 +70,17 @@
                 <form method="POST" action="db/update">
                     <h2>Olet muokkaamassa tätä tehtävää</h2>
                     <input id="mId" type="hidden" type="number" name="Id">
-                    <p>Lisää tehtävän nimi:</p> <input id="mNimi" type="text" name="Nimi">
-                    <p>Lisää tehtävän kuvaus:</p> <input id="mKuvaus" type="text" name="Kuvaus">
+                    <p>Lisää tehtävän nimi:</p> <input id="mNimi" type="text" name="Nimi" required>
+                    <p>Lisää tehtävän kuvaus:</p> <textarea id="mKuvaus" class="kuvaus" type="text" name="Kuvaus" required></textarea>
                     <p>Lisää tehtävän attribuutit numeroina:</p>
-                    <p>Fyysisyys</p> <input id="mFyysisyys" type="number" name="Fyysisyys" min="0" max="5">
-                    <p>Ajattelu</p> <input id="mAjattelu" type="number" name="Ajattelu" min="0" max="5">
-                    <p>Sosiaalisuus</p> <input id="mSosiaalisuus" type="number" name="Sosiaalisuus" min="0" max="5">
-                    <p>Paikka</p> <input id="mPaikka" type="text" name="Paikka">
-                    <p>Sähköposti</p> <input id="mSähköposti" type="email" name="Sähköposti">
-                    <p>Puh. nro.</p> <input id="mPuhelin" type="tel" name="Puhelin">
-                    <p>Linkki</p> <input id="mLinkki" type="text" name="Linkki">
-                    <p>Pvm.</p> <input id="mPvm" type="date" name="Pvm">
+                    <p>Fyysisyys</p> <input id="mFyysisyys" type="number" name="Fyysisyys" min="0" max="5" required>
+                    <p>Ajattelu</p> <input id="mAjattelu" type="number" name="Ajattelu" min="0" max="5" required>
+                    <p>Sosiaalisuus</p> <input id="mSosiaalisuus" type="number" name="Sosiaalisuus" min="0" max="5" required>
+                    <p>Paikka</p> <input id="mPaikka" type="text" name="Paikka" required>
+                    <p>Sähköposti</p> <input id="mSähköposti" type="email" name="Sähköposti" required>
+                    <p>Puh. nro.</p> <input id="mPuhelin" type="tel" name="Puhelin" required>
+                    <p>Linkki</p> <input id="mLinkki" type="text" name="Linkki" required>
+                    <p>Pvm.</p> <input id="mPvm" type="date" name="Pvm" required>
                     <input type="submit" value="Muokkaa">
                 </form>
             </div>
