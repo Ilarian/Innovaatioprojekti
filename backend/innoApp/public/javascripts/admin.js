@@ -22,7 +22,6 @@ xhr.onload = function (e) {
                     li.appendChild(document.createTextNode(listText(j) + values[j]));
                     ul.appendChild(li);
                 }
-                tehtävälista.appendChild(ul);
 
                 //Luodaan taskin loppuun poista-painike.
                 let removeBtn = document.createElement("button");
@@ -36,8 +35,10 @@ xhr.onload = function (e) {
                 modifyBtn.setAttribute("value", ""+values[0]);
                 modifyBtn.innerHTML = "Muokkaa";
 
-                tehtävälista.appendChild(removeBtn);
-                tehtävälista.appendChild(modifyBtn);
+                ul.appendChild(removeBtn);
+                ul.appendChild(modifyBtn);
+
+                tehtävälista.appendChild(ul);
             }
             setClickListenerRemove();
             setClickListenerModify();
