@@ -51,4 +51,22 @@ router.get('/task', function(req, res) {
 
 });
 
+router.get('/image/:id', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getImage(req.params.id, sendResponse);
+
+});
+
+router.get('/video/:id', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getVideo(req.params.id, sendResponse);
+
+});
+
 module.exports = router;

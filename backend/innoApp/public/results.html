@@ -63,11 +63,12 @@
                     <h2 class="section-heading">Ehdota tehtävää</h2>
                     <p class="text-light">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
                     <div id="suggest-container">
-                        <p class="text-light">Tehtävän nimi:</p> 
+                        <p class="text-light suggest-header">Tehtävän nimi:</p> 
                         <input id="taskname" type="text" name="taskname"><br>
-                        <p class="text-light">Kuvaus:</p> 
+                        <p class="text-light suggest-header">Kuvaus:</p> 
                         <textarea id="desc" name="desc"></textarea><br>
                         <button id="suggest" class="btn btn-primary btn-lg">Ehdota</button>
+                        <p id="suggestion_confirmation"></p>
                     </div> 
                 </div>
             </div>
@@ -84,8 +85,7 @@
         <div id="modal-upper">
             <div id=modal-upper-left>
                 <div id="modal-image-container">
-                    <img class="modal-image slides" id="modal-image">
-                    <iframe class="modal-video slides" id="modal-video"  src="https://www.youtube.com/embed/FiARsQSlzDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!--Images and videos added dynamically-->
                 </div>
                 <div>
                     <!-- Next and previous buttons -->

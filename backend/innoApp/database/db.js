@@ -100,6 +100,7 @@ exports.getSuggestion = function(callback) {
     connection.end()
 }
 
+// Returns all tasks with first image they have
 exports.getTask = function(callback) {
     //Needs to be changed when db has been established
     var connection = mysql.createConnection({
@@ -111,7 +112,47 @@ exports.getTask = function(callback) {
     connection.connect();
 
     // This function is async and must callback
-    connection.query('SELECT * FROM task', function (err, rows, fields) {
+    connection.query('SELECT t.*, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) GROUP BY t.task_id', function (err, rows, fields) {
+    if (err) throw err;
+    // Sends the response back to client
+    callback(rows);
+    });
+
+    connection.end()
+};
+
+exports.getImage = function(taskid, callback) {
+    //Needs to be changed when db has been established
+    var connection = mysql.createConnection({
+        host: 'localhost', //Address of the database
+        user: 'root', //User to login with
+        password: 'juuri', //Password used to go with the user
+        database: 'jobMatch' //Database name within the address
+    });
+    connection.connect();
+
+    // This function is async and must callback
+    connection.query('SELECT url FROM image WHERE image.task_id = ?', [taskid], function (err, rows, fields) {
+    if (err) throw err;
+    // Sends the response back to client
+    callback(rows);
+    });
+
+    connection.end()
+};
+
+exports.getVideo = function(taskid, callback) {
+    //Needs to be changed when db has been established
+    var connection = mysql.createConnection({
+        host: 'localhost', //Address of the database
+        user: 'root', //User to login with
+        password: 'juuri', //Password used to go with the user
+        database: 'jobMatch' //Database name within the address
+    });
+    connection.connect();
+
+    // This function is async and must callback
+    connection.query('SELECT url FROM video WHERE video.task_id = ?', [taskid], function (err, rows, fields) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);
