@@ -142,9 +142,36 @@
           <td>&nbsp;</td>
         </tr>      
   </table>
+    <script type="text/javascript">
+        function haeOnClick() {
+            var fyysisyysSlider = document.getElementsByName("amountRange");
+            var pulmanratkaisuSlider = document.getElementsByName("amountRange2");
+            var seurallisuusSlider = document.getElementsByName("amountRange3");
+            var results = {ajattelu_value:fyysisyysSlider[0].value, fysiikka_value:pulmanratkaisuSlider[0].value, sosiaalisuus_value:seurallisuusSlider[0].value};
+            //Store results in local storage for transfer to results site
+            //LocalStorage can't store objects so we turn them to JSON
+            localStorage.setItem("results",JSON.stringify(results));
+
+            var xhr = new XMLHttpRequest();
+
+            //Store results to db so we can collect big data and get an idea what kind of tasks people are looking for
+            xhr.open("POST", "db/results/"+fyysisyysSlider[0].value+"&"+pulmanratkaisuSlider[0].value+"&"+seurallisuusSlider[0].value, true)
+            xhr.onload = () =>{
+                if(xhr.readyState === 4){
+                    if(xhr.status === 200) {
+                        console.log(xhr.responseText);
+                        window.location.href = "results.html";
+                    } else {
+                        console.error(xhr.statusText);
+                    }
+                }
+            }
+            xhr.send();
+        }
+    </script>
      <p align="center">
      <br>
-      <a href="results.html"><button type="button" class="button">HAE!</button></a>
+      <!--<a href="results.html">--><button type="button" class="button" onclick="haeOnClick()">HAE!</button><!--</a>-->
      </p>
 
         <br>

@@ -31,7 +31,14 @@ router.get('/suggestion', function(req, res) {
 
 });
 
+router.post('/results/:phys&:think&:soc', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
 
+  db.postResults(req.params.phys, req.params.think, req.params.soc, sendResponse);
+
+});
 
 router.delete('/delete/:id', function(req, res) {
   db.delete(req.params.id);

@@ -100,7 +100,7 @@ exports.getSuggestion = function(callback) {
     connection.end()
 }
 
-// Returns all tasks with first image they have
+// Returns all tasks with first image they have and with location name
 exports.getTask = function(callback) {
     //Needs to be changed when db has been established
     var connection = mysql.createConnection({
@@ -112,7 +112,7 @@ exports.getTask = function(callback) {
     connection.connect();
 
     // This function is async and must callback
-    connection.query('SELECT t.*, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) GROUP BY t.task_id', function (err, rows, fields) {
+    connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) GROUP BY t.task_id', function (err, rows, fields) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);
@@ -156,6 +156,25 @@ exports.getVideo = function(taskid, callback) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);
+    });
+
+    connection.end()
+};
+
+exports.postResults = function(phys, think, soc, callback) {
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'juuri',
+        database: 'jobMatch'
+    });
+
+    connection.connect();
+
+    //Question marks used to escape strings and prevent SQL injection from user input
+    connection.query('INSERT INTO results (fysiikka_value, ajattelu_value, sosiaalisuus_value) VALUES (?, ?, ?)', [phys, think, soc], function (err, rows, fields) {
+        if (err) throw err;
+        callback("row '" + phys + "', '" + think + "', '" + soc + "' added");
     });
 
     connection.end()

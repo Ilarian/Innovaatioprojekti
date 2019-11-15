@@ -28,8 +28,13 @@ window.onload = function(){
     //"show more" button
     var morebutton = document.getElementById("more");
 
-    // results will be received from the quiz
-    var results = {ajattelu_value:5, fysiikka_value:4, sosiaalisuus_value:2};
+    // results will be received from the quiz through localstorage
+    var results = JSON.parse(this.localStorage.getItem("results"));
+
+    if (results===null) {
+        // Default value so site works even if no results are found
+        results = {ajattelu_value:3, fysiikka_value:3, sosiaalisuus_value:3};
+    }
 
     //Empty array to initialization
     var tasks = [];
@@ -122,7 +127,7 @@ window.onload = function(){
             emailText.innerHTML = item.email;
             linkText.innerHTML = item.link;
             linkText.href = item.link;
-            locationText.innerHTML = item.location;
+            locationText.innerHTML = item.location_name;
 
             xhr.open("GET", "db/image/"+item.task_id, true)
             xhr.onload = () =>{

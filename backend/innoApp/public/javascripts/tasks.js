@@ -188,7 +188,7 @@ window.onload = function(){
             emailText.innerHTML = item.email;
             linkText.innerHTML = item.link;
             linkText.href = item.link;
-            locationText.innerHTML = item.location;
+            locationText.innerHTML = item.location_name;
 
             xhr.open("GET", "db/image/"+item.task_id, true)
             xhr.onload = () =>{
