@@ -121,6 +121,26 @@ exports.getTask = function(callback) {
     connection.end()
 };
 
+exports.getLocation = function(callback) {
+    //Needs to be changed when db has been established
+    var connection = mysql.createConnection({
+        host: 'localhost', //Address of the database
+        user: 'root', //User to login with
+        password: 'juuri', //Password used to go with the user
+        database: 'jobMatch' //Database name within the address
+    });
+    connection.connect();
+
+    // This function is async and must callback
+    connection.query('SELECT * FROM location', function (err, rows, fields) {
+    if (err) throw err;
+    // Sends the response back to client
+    callback(rows);
+    });
+
+    connection.end()
+};
+
 exports.getImage = function(taskid, callback) {
     //Needs to be changed when db has been established
     var connection = mysql.createConnection({

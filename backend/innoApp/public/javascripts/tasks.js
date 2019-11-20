@@ -20,7 +20,7 @@ window.onload = function(){
     //Suggest fields
     var suggestName = document.getElementById("taskname");
     var suggestDesc = document.getElementById("desc");
-    var suggestConfirmation = this.document.getElementById("suggestion_confirmation");
+    var suggestConfirmation = document.getElementById("suggestion_confirmation");
 
     //"Suggest" button
     var suggestbutton = document.getElementById("suggest");
@@ -28,15 +28,69 @@ window.onload = function(){
     //"show more" button
     var morebutton = document.getElementById("more");
 
-    // Sort buttons
-    // TODO: Make buttons reverse on another click?
-    var afirstsort = document.getElementById("afirst");
-    var zfirstsort = document.getElementById("zfirst");
-    var datelsort = document.getElementById("dateLatest");
-    var dateesort = document.getElementById("dateEarliest");
-    var thinksort = document.getElementById("think");
-    var physicalsort = document.getElementById("physical");
-    var socialsort = document.getElementById("social");
+    // "filter" button
+    var filterButton = document.getElementById("filter");
+
+    // Sort dropdown menu
+    var sortDropdown = document.getElementById("sortDropdown");
+
+    // Filter elements
+    var locationMultiselect = document.getElementById("locationMultiselect");
+
+    function recreateTaskList() {
+        // clear tasks
+        while (tasklist.firstChild) {
+            tasklist.removeChild(tasklist.firstChild);
+        }
+        // call function for each task
+        tasks.forEach(addTask);
+        j = shown;
+        showTasks();
+    }
+
+    function afirstsortFunction() {
+        // sorting
+        tasks.sort(function(a, b){
+            var x = a.name.toLowerCase();
+            var y = b.name.toLowerCase();
+            if (y > x) {return -1;}
+            if (y < x) {return 1;}
+            return 0;
+        });
+        // recreate
+        recreateTaskList();
+    }
+
+    //Empty array to initialization
+    var locations = [];
+
+    function getLocations() {
+        xhr.open("GET", "db/location", true)
+        xhr.onload = () =>{
+            if(xhr.readyState === 4){
+                if(xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    locations = JSON.parse(xhr.response);
+                    locations.forEach(addLocation);
+                    //Call getTask here since xhr seems to only work for one db call at a time
+                    getTask();
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    getLocations();
+
+    function addLocation(item, index) {
+        var locationOption = document.createElement("option");
+        locationOption.value = item.location_name;
+        locationOption.innerHTML = item.location_name;
+
+        locationMultiselect.appendChild(locationOption);
+    };
 
     //Empty array to initialization
     var tasks = [];
@@ -58,90 +112,68 @@ window.onload = function(){
         xhr.send();
     }
 
-    getTask();
-
-    afirstsort.onclick = afirstsortFunction
-    
-    function recreateTaskList() {
-        // clear tasks
-        while (tasklist.firstChild) {
-            tasklist.removeChild(tasklist.firstChild);
+    sortDropdown.onchange = function() {
+        switch (sortDropdown.value) {
+            case "afirst":
+                afirstsortFunction()
+                break;
+            case "zfirst":
+                // sorting
+                tasks.sort(function(a, b){
+                    var x = a.name.toLowerCase();
+                    var y = b.name.toLowerCase();
+                    if (x > y) {return -1;}
+                    if (x < y) {return 1;}
+                    return 0;
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            case "dateLatest":
+                // sorting
+                tasks.sort(function(a, b){
+                    //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
+                    return new Date(b.date) - new Date(a.date);
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            case "dateEarliest":
+                // sorting
+                tasks.sort(function(a, b){
+                    //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
+                    return new Date(a.date) - new Date(b.date);
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            case "think":
+                // sorting
+                tasks.sort(function(a, b){
+                    return b.ajattelu_value-a.ajattelu_value;
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            case "physical":
+                // sorting
+                tasks.sort(function(a, b){
+                    return b.fysiikka_value-a.fysiikka_value;
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            case "social":
+                // sorting
+                tasks.sort(function(a, b){
+                    return b.sosiaalisuus_value-a.sosiaalisuus_value;
+                });
+                // recreate
+                recreateTaskList();
+                break;
+            default:
+                console.error("Chosen value has no sort!");
         }
-        // call function for each task
-        tasks.forEach(addTask);
-        j = shown;
-        showTasks();
-    }
-
-    function afirstsortFunction() {
-        tasks.sort(function(a, b){
-            var x = a.name.toLowerCase();
-            var y = b.name.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
-            return 0;
-        }); 
-        recreateTaskList();
-    }
-
-    zfirstsort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            var x = a.name.toLowerCase();
-            var y = b.name.toLowerCase();
-            if (x > y) {return -1;}
-            if (x < y) {return 1;}
-            return 0;
-        });
-        // recreate
-        recreateTaskList();
-    }
-
-    datelsort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
-            return new Date(b.date) - new Date(a.date);
-        });
-        // recreate
-        recreateTaskList();
-    }
-
-    dateesort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            //https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
-            return new Date(a.date) - new Date(b.date);
-        });
-        // recreate
-        recreateTaskList();
-    }
-
-    thinksort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            return b.ajattelu_value-a.ajattelu_value;
-        });
-        // recreate
-        recreateTaskList();
-    }
-
-    physicalsort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            return b.fysiikka_value-a.fysiikka_value;
-        });
-        // recreate
-        recreateTaskList();
-    }
-
-    socialsort.onclick = function() {
-        // sorting
-        tasks.sort(function(a, b){
-            return b.sosiaalisuus_value-a.sosiaalisuus_value;
-        });
-        // recreate
-        recreateTaskList();
     }
 
     // create new task element
@@ -310,12 +342,15 @@ window.onload = function(){
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("slides");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        //Check for empty arrays
+        if (slides.length!==0) {
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
         }
-        slides[slideIndex-1].style.display = "block";
     }
 
     function submitSuggestion() {

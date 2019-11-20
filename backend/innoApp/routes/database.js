@@ -58,6 +58,15 @@ router.get('/task', function(req, res) {
 
 });
 
+router.get('/location', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getLocation(sendResponse);
+
+});
+
 router.get('/image/:id', function(req, res) {
   function sendResponse(result){
     res.send(result);

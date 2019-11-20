@@ -147,8 +147,19 @@ header .header-content .header-content-inner p {
     justify-content: center;
 }
 
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .sort-content {
     margin: 2.5px;
+}
+
+.black-text {
+    color: black;
 }
 
 /*Modal*/
