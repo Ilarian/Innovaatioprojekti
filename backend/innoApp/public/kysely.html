@@ -101,6 +101,39 @@
     
 	<form>
   
+    <div class="filter-container">
+        <p>Sijainti:</p>
+        <select id="locationDropdown" class="black-text">
+            <option value="kaikki" selected>Kaikki</option>
+            <!-- Get options from db-->
+        </select>
+    </div>
+
+    <script type="text/javascript">
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "db/location", true)
+        xhr.onload = () =>{
+            if(xhr.readyState === 4){
+                if(xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    locations = JSON.parse(xhr.response);
+                    locations.forEach(addLocation);
+                    function addLocation(item, index) {
+                        var locationOption = document.createElement("option");
+                        locationOption.value = item.location_name;
+                        locationOption.innerHTML = item.location_name;
+
+                        var locationDropdown = document.getElementById("locationDropdown");
+                        locationDropdown.appendChild(locationOption);
+                    };
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        }
+        xhr.send();
+    </script>
+
   <table style="width:100%">
         <tr>
           <th></th>
@@ -151,6 +184,7 @@
             //Store results in local storage for transfer to results site
             //LocalStorage can't store objects so we turn them to JSON
             localStorage.setItem("results",JSON.stringify(results));
+            localStorage.setItem("location",document.getElementById("locationDropdown").value);
 
             var xhr = new XMLHttpRequest();
 

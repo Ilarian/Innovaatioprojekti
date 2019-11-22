@@ -35,7 +35,8 @@ window.onload = function(){
     var sortDropdown = document.getElementById("sortDropdown");
 
     // Filter elements
-    var locationMultiselect = document.getElementById("locationMultiselect");
+    var locationFilter = document.getElementById("locationFilter");
+    var filterButton = document.getElementById("filter");
 
     function recreateTaskList() {
         // clear tasks
@@ -89,11 +90,57 @@ window.onload = function(){
         locationOption.value = item.location_name;
         locationOption.innerHTML = item.location_name;
 
-        locationMultiselect.appendChild(locationOption);
+        locationFilter.appendChild(locationOption);
     };
 
-    //Empty array to initialization
-    var tasks = [];
+    //Filter tasks
+    filterButton.onclick = function() {
+        /*var filters = [];
+        var filteredTasks = [];
+        var options = locationMultiselect && locationMultiselect.options;
+        var opt;
+        
+        //Check filters
+        for (var i=0; i<options.length; i++) {
+            opt = options[i];
+        
+            if (opt.selected) {
+                filters.push(opt.value || opt.text);
+            }
+        }
+
+        if (filters.length!==0) {
+            for (var i=0; i<dbTasks.length; i++) {
+                task = dbTasks[i];
+                if (filters.includes(task.location_name)) {
+                    filteredTasks.push(task);
+                }
+            }
+        } else {
+            filteredTasks = dbTasks;
+        }
+
+        tasks = filteredTasks;*/
+        var chosenLocation = locationFilter.value;
+        if (chosenLocation==="kaikki") {
+            tasks = dbTasks;
+        } else {
+            var filteredTasks = [];
+            for (var i=0; i<dbTasks.length; i++) {
+                task = dbTasks[i];
+                if (task.location_name===chosenLocation) {
+                    filteredTasks.push(task);
+                }
+            }
+            tasks = filteredTasks;
+        }
+        recreateTaskList();
+    }
+
+    //Store tasks from db in a local variable
+    var dbTasks = [];
+    //Local tasks variable so filtering can be done easily while keeping the db tasks separate
+    var tasks = []
 
     function getTask() {
         xhr.open("GET", "db/task", true)
@@ -101,7 +148,8 @@ window.onload = function(){
             if(xhr.readyState === 4){
                 if(xhr.status === 200) {
                     console.log(xhr.responseText);
-                    tasks = JSON.parse(xhr.response);
+                    dbTasks = JSON.parse(xhr.response);
+                    tasks = dbTasks;
                     //Show first tasks
                     afirstsortFunction();
                 } else {

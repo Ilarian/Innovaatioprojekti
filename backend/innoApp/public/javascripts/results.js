@@ -20,7 +20,7 @@ window.onload = function(){
     //Suggest fields
     var suggestName = document.getElementById("taskname");
     var suggestDesc = document.getElementById("desc");
-    var suggestConfirmation = this.document.getElementById("suggestion_confirmation");
+    var suggestConfirmation = document.getElementById("suggestion_confirmation");
 
     //"Suggest" button
     var suggestbutton = document.getElementById("suggest");
@@ -28,16 +28,23 @@ window.onload = function(){
     //"show more" button
     var morebutton = document.getElementById("more");
 
-    // results will be received from the quiz through localstorage
+    // results and location will be received from the quiz through localstorage
     var results = JSON.parse(this.localStorage.getItem("results"));
+    var chosenLocation = this.localStorage.getItem("location");
 
     if (results===null) {
         // Default value so site works even if no results are found
         results = {ajattelu_value:3, fysiikka_value:3, sosiaalisuus_value:3};
     }
 
-    //Empty array to initialization
-    var tasks = [];
+    if (chosenLocation===null) {
+        chosenLocation = "kaikki";
+    }
+
+    //Store tasks from db in a local variable
+    var dbTasks = [];
+    //Local tasks variable so filtering can be done easily while keeping the db tasks separate
+    var tasks = []
 
     // tasks will be received from the database
     function getTask() {
@@ -46,7 +53,19 @@ window.onload = function(){
             if(xhr.readyState === 4){
                 if(xhr.status === 200) {
                     console.log(xhr.responseText);
-                    tasks = JSON.parse(xhr.response);
+                    dbTasks = JSON.parse(xhr.response);
+                    if (chosenLocation==="kaikki") {
+                        tasks = dbTasks;
+                    } else {
+                        var filteredTasks = [];
+                        for (var i=0; i<dbTasks.length; i++) {
+                            task = dbTasks[i];
+                            if (task.location_name===chosenLocation) {
+                                filteredTasks.push(task);
+                            }
+                        }
+                        tasks = filteredTasks;
+                    }
                     //Show results
                     resultsortFunction(results);
                 } else {
@@ -258,7 +277,7 @@ window.onload = function(){
             }
             slides[slideIndex-1].style.display = "block";
         }
-    } 
+    }
 
     function submitSuggestion() {
         // Check that fields are filled
