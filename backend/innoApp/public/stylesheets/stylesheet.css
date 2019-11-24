@@ -22,7 +22,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Glacial Indifference','Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: grey;
+    background-color: #ffe9a6;
 }
 
 a {
@@ -48,7 +48,6 @@ header {
     width: 100%;
     min-height: 100%;
     text-align: center;
-    color: #fff;
 }
 
 header .header-content {
@@ -68,7 +67,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    /*color: rgba(255,255,255,.7);*/
 }
 
 /*@media(min-width:768px) {*/
@@ -106,12 +105,14 @@ header .header-content .header-content-inner p {
 }
 
 .intro {
-	color: #fff;
-    background-color: yellowgreen;
+    background-color: #b5ecff;
     padding: 70px 0;
 }
 .intro h2{
     text-align: center;
+}
+.intro .header .text-light{
+    color:#323232;
 }
 
 /* Villen lisäyksiä */
@@ -351,11 +352,12 @@ header .header-content .header-content-inner p {
 
 .page-footer {
 	text-align: center;
+    background-color: darkgray;
 	}
 
 .page-footer .contact {
 	padding: 100px 0;
-	color: #fff;
+    color:#323232;
 	}
 
 .page-footer .contact p {
@@ -365,17 +367,13 @@ header .header-content .header-content-inner p {
 	
 .glyphicon,
 .page-footer .contact .glyphicon {
-	font-size: 32px;
+	font-size: 16px;
 	font-weight: 700;
 	}
 		
 .page-footer .small-print {
 	font-weight: 300;
 	}
-
-.text-light {
-    color: rgba(255,255,255,.7);
-}
 
 .btn-primary {
     border-color: yellowgreen;
