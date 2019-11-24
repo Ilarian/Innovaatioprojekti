@@ -3,30 +3,35 @@
 
 <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kyselyn tulokset</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link href="/stylesheets/stylesheet.css" rel="stylesheet">
+    <link href="stylesheets/stylesheet.css" rel="stylesheet">
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap -->
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- JavaScript -->
-    <script src="/javascripts/results.js"></script>
+    <script src="javascripts/results.js"></script>
 </head>
 
 <!-- Navigointi -->
-<nav>
-    <div class="navbar">
-        <ul>
-            <li><a>Navigointipalkki</a></li>
-            <!-- <li><button>Nappi</button></li> -->
-            <li><a href="index.html">Etusivu</a></li>
-            <li><a href="#">Linkki</a></li>
-            <li><a>Jotain muuta</a></li>
+<nav class="navbar navbar-inverse navbar-fixed-top nav-main">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Llinder</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
+            <li><a href="#">Mitä muuta?</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>Logot ym tänne</a></li>
         </ul>
     </div>
 </nav>
@@ -56,13 +61,14 @@
                 </div>
                 <div>
                     <h2 class="section-heading">Ehdota tehtävää</h2>
-                    <p class="text-light">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
+                    <p class="text-dark">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
                     <div id="suggest-container">
-                        <p class="text-light">Tehtävän nimi:</p> 
+                        <p class="text-dark suggest-header">Tehtävän nimi:</p> 
                         <input id="taskname" type="text" name="taskname"><br>
-                        <p class="text-light">Kuvaus:</p> 
+                        <p class="text-dark suggest-header">Kuvaus:</p> 
                         <textarea id="desc" name="desc"></textarea><br>
                         <button id="suggest" class="btn btn-primary btn-lg">Ehdota</button>
+                        <p id="suggestion_confirmation"></p>
                     </div> 
                 </div>
             </div>
@@ -79,8 +85,7 @@
         <div id="modal-upper">
             <div id=modal-upper-left>
                 <div id="modal-image-container">
-                    <img class="modal-image slides" id="modal-image">
-                    <iframe class="modal-video slides" id="modal-video"  src="https://www.youtube.com/embed/FiARsQSlzDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!--Images and videos added dynamically-->
                 </div>
                 <div>
                     <!-- Next and previous buttons -->

@@ -22,7 +22,7 @@ router.post('/suggestion/:name&:desc', function(req, res) {
 
 });
 
-router.get('/suggestion/', function(req, res) {
+router.get('/suggestion', function(req, res) {
   function sendResponse(result){
     res.send(result);
   }
@@ -31,7 +31,14 @@ router.get('/suggestion/', function(req, res) {
 
 });
 
+router.post('/results/:phys&:think&:soc', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
 
+  db.postResults(req.params.phys, req.params.think, req.params.soc, sendResponse);
+
+});
 
 router.delete('/delete/:id', function(req, res) {
   db.delete(req.params.id);
@@ -40,6 +47,42 @@ router.delete('/delete/:id', function(req, res) {
 router.post('/add', function(req, res) {
   db.add(req.body)
   res.redirect('/admin.html')
+});
+
+router.get('/task', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getTask(sendResponse);
+
+});
+
+router.get('/location', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getLocation(sendResponse);
+
+});
+
+router.get('/image/:id', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getImage(req.params.id, sendResponse);
+
+});
+
+router.get('/video/:id', function(req, res) {
+  function sendResponse(result){
+    res.send(result);
+  }
+
+  db.getVideo(req.params.id, sendResponse);
+
 });
 
 module.exports = router;
