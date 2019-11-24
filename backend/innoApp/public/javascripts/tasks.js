@@ -38,6 +38,8 @@ window.onload = function(){
     var locationFilter = document.getElementById("locationFilter");
     var filterButton = document.getElementById("filter");
 
+    var colorArray = ["#b5ecff", "#ffe9a6", "#FA8AB0"];
+
     function recreateTaskList() {
         // clear tasks
         while (tasklist.firstChild) {
@@ -238,6 +240,8 @@ window.onload = function(){
 
         //task
         task.classList.add("task");
+        var colorIndex = colorArray[index%colorArray.length];
+        task.style="background-color: "+colorIndex+";";
 
         //image container
         imagecontainer.classList.add("imagecontainer");
@@ -249,6 +253,7 @@ window.onload = function(){
 
         // task name
         header.innerHTML = item.name;
+        header.classList.add("task-header");
 
         // task description
         description.innerHTML = item.description;

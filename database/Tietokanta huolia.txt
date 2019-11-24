@@ -1,6 +1,3 @@
 Täytyy jossain välissä tutkia tarkemmin noita oikeuksia ja käyttäjiä kannassa.
 
-Lisättävä lisää kenttiä tauluihin.
-Päivämäärä, yhteystiedot (sähköposti, puhelinnumero, linkki)
-
 Pitäisikö avata uusia yhteyksiä jokaiselle kyselylle?

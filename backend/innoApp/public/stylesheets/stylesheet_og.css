@@ -34,8 +34,8 @@ a:focus {
     color: forestgreen;
 }
 img {
-    max-width: 250px;
-    max-height: 132px;
+    max-width: 128px;
+    max-height: 128px;
 }
 
 p {
@@ -117,15 +117,18 @@ header .header-content .header-content-inner p {
 /* Villen lisäyksiä */
 .tasks {
 	color: #323232;
-    background-color: whitesmoke;
+    background-color: #ffe9a6;
     padding: 70px 0;
     text-align: center;
+}
+
+.bg-blue {
+    background-color: #b5ecff;
 }
 
 .imagecontainer {
     border-bottom-style: groove;
     height: 66%;
-    background-color: whitesmoke;
 }
 
 .task {
@@ -139,7 +142,7 @@ header .header-content .header-content-inner p {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.1s;
-    /*background-color: #b5ecff;*/
+    background-color: #b5ecff;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -180,15 +183,6 @@ header .header-content .header-content-inner p {
     color: #323232;
 }
 
-#locationFilter {
-  margin-right: 10px;
-  margin-left: 2.5px;
-}
-
-.task-header {
-  margin-top: 5px;
-}
-
 /*Modal*/
   /* The Modal (background) */
   .modal {
@@ -220,27 +214,23 @@ header .header-content .header-content-inner p {
     display: block;
     border-style: groove;
     width: 50%;
-    background-color: whitesmoke;
+    background-color: #b5ecff;
   }
 
   #modal-upper{
     display: flex;
     height: 50%;
-    background-color: #b5ecff;
   }
 
   #modal-upper-left{
     border-style: groove;
-    border-bottom-style: none;
     flex: 50%;
-    border-right-style: none;
   }
 
   #modal-lower{
     height: 50%;
     border-style: groove;
     padding: 10px;
-    background-color: #ffe9a6;
   }
   
   #modal-image-container {
@@ -250,8 +240,6 @@ header .header-content .header-content-inner p {
 
   #modal-description {
     border-style: groove;
-    border-bottom-style: none;
-    border-left-width: 3px;
     padding: 10px;
     flex: 50%;
   }
