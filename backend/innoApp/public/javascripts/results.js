@@ -46,6 +46,8 @@ window.onload = function(){
     //Local tasks variable so filtering can be done easily while keeping the db tasks separate
     var tasks = []
 
+    var colorArray = ["#b5ecff", "#ffe9a6", "#FA8AB0"];
+
     // tasks will be received from the database
     function getTask() {
         xhr.open("GET", "db/task", true)
@@ -116,6 +118,8 @@ window.onload = function(){
 
         //task
         task.classList.add("task");
+        var colorIndex = colorArray[index%colorArray.length];	
+	    task.style="background-color: "+colorIndex+";";
 
         //image container
         imagecontainer.classList.add("imagecontainer");
@@ -127,6 +131,7 @@ window.onload = function(){
 
         // task name
         header.innerHTML = item.name;
+        header.classList.add("task-header");
 
         // task description
         description.innerHTML = item.description;

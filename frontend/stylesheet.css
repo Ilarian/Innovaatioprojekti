@@ -245,6 +245,7 @@ header .header-content .header-content-inner p {
   /* The Close Button */
   .close {
     position: absolute;
+      padding-top: 30px; /* huono ratkaisu skaalavuuden kannalta? */
     top: 15px;
     right: 35px;
     color: #f1f1f1;

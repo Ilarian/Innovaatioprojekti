@@ -22,7 +22,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Glacial Indifference','Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #ffe9a6;
+    background-color: grey;
 }
 
 a {
@@ -34,8 +34,8 @@ a:focus {
     color: forestgreen;
 }
 img {
-    max-width: 250px;
-    max-height: 132px;
+    max-width: 128px;
+    max-height: 128px;
 }
 
 p {
@@ -48,6 +48,7 @@ header {
     width: 100%;
     min-height: 100%;
     text-align: center;
+    color: #fff;
 }
 
 header .header-content {
@@ -67,7 +68,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    /*color: rgba(255,255,255,.7);*/
+    color: rgba(255,255,255,.7);
 }
 
 /*@media(min-width:768px) {*/
@@ -105,28 +106,29 @@ header .header-content .header-content-inner p {
 }
 
 .intro {
-    background-color: #b5ecff;
+	color: #fff;
+    background-color: yellowgreen;
     padding: 70px 0;
 }
 .intro h2{
     text-align: center;
 }
-.intro .header .text-light{
-    color:#323232;
-}
 
 /* Villen lisäyksiä */
 .tasks {
 	color: #323232;
-    background-color: #b5ecff;
+    background-color: #ffe9a6;
     padding: 70px 0;
     text-align: center;
+}
+
+.bg-blue {
+    background-color: #b5ecff;
 }
 
 .imagecontainer {
     border-bottom-style: groove;
     height: 66%;
-    background-color: whitesmoke;
 }
 
 .task {
@@ -140,7 +142,7 @@ header .header-content .header-content-inner p {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.1s;
-    /*background-color: #b5ecff;*/
+    background-color: #b5ecff;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -181,15 +183,6 @@ header .header-content .header-content-inner p {
     color: #323232;
 }
 
-#locationFilter {
-  margin-right: 10px;
-  margin-left: 2.5px;
-}
-
-.task-header {
-  margin-top: 5px;
-}
-
 /*Modal*/
   /* The Modal (background) */
   .modal {
@@ -221,27 +214,23 @@ header .header-content .header-content-inner p {
     display: block;
     border-style: groove;
     width: 50%;
-    background-color: whitesmoke;
+    background-color: #b5ecff;
   }
 
   #modal-upper{
     display: flex;
     height: 50%;
-    background-color: #b5ecff;
   }
 
   #modal-upper-left{
     border-style: groove;
-    border-bottom-style: none;
     flex: 50%;
-    border-right-style: none;
   }
 
   #modal-lower{
     height: 50%;
     border-style: groove;
     padding: 10px;
-    background-color: #ffe9a6;
   }
   
   #modal-image-container {
@@ -251,8 +240,6 @@ header .header-content .header-content-inner p {
 
   #modal-description {
     border-style: groove;
-    border-bottom-style: none;
-    border-left-width: 3px;
     padding: 10px;
     flex: 50%;
   }
@@ -364,12 +351,11 @@ header .header-content .header-content-inner p {
 
 .page-footer {
 	text-align: center;
-    background-color: darkgray;
 	}
 
 .page-footer .contact {
 	padding: 100px 0;
-    color:#323232;
+	color: #fff;
 	}
 
 .page-footer .contact p {
@@ -379,13 +365,17 @@ header .header-content .header-content-inner p {
 	
 .glyphicon,
 .page-footer .contact .glyphicon {
-	font-size: 16px;
+	font-size: 32px;
 	font-weight: 700;
 	}
 		
 .page-footer .small-print {
 	font-weight: 300;
 	}
+
+.text-light {
+    color: rgba(255,255,255,.7);
+}
 
 .btn-primary {
     border-color: yellowgreen;
