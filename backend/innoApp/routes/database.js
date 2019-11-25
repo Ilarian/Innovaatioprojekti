@@ -40,11 +40,11 @@ router.post('/results/:phys&:think&:soc', function(req, res) {
 
 });
 
-router.get('/getTask/:id', function(req,res){
+router.get('/getTaskToModify/:id', function(req,res){
   function sendResponse(result) {
     res.send(result);
   }
-  db.getTask(req.params.id, sendResponse);
+  db.getTaskToModify(req.params.id, sendResponse);
 });
 
 router.delete('/delete/:id', function(req, res) {

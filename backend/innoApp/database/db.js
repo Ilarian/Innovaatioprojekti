@@ -173,7 +173,7 @@ exports.postResults = function(phys, think, soc, callback) {
     connection.end()
 };
 
-exports.getTask = function(id, callback){
+exports.getTaskToModify = function(id, callback){
 
     let connection = connectDb();
     connection.connect();

@@ -192,7 +192,7 @@ function setClickListenerModify() {
 }
 
 function modifyRequest(id){
-    xhr.open("GET", "/db/getTask/"+id, true)
+    xhr.open("GET", "/db/getTaskToModify/"+id, true)
     xhr.onload = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
             let dbTasks = JSON.parse(xhr.responseText);
