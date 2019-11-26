@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kyselyn tulokset</title>
+    <title>Sinulle sopivat tehtävät</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -31,6 +31,33 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a>Logot ym tänne</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Mobiilinavibar, ei oikein kunnolla toiminnossa vielä -->
+<nav class="navbar navbar-inverse navbar-fixed-top nav-mobile">
+
+    <a class="navbar-brand" href="index.html">Llinder</a>
+
+    <!-- Collapse nappi -->
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+            class="fas fa-bars fa-1x"></i></span></button>
+
+    <!-- Collapsattava sisältö -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Etusivu<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all_tasks.html">Kaikki tehtävät</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Muu</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -81,8 +108,8 @@
     <span class="close">&times;</span>
     <div id="modal-content">
         <div id="modal-header"></div>
-        <div id="modal-upper">
-            <div id=modal-upper-left>
+        <div id="modal-flex">
+            <div id="modal-first" class="modal-panel">
                 <div id="modal-image-container">
                     <!--Images and videos added dynamically-->
                 </div>
@@ -92,32 +119,31 @@
                     <a class="next">&#10095;</a>
                 </div>
             </div>
-            <div id="modal-description">
-                <p id="modal-description-text" class="title-text">Kuvaus</p>
+            <div id="modal-second" class="modal-panel">
                 <p id="modal-description-value"></p>
             </div>
-        </div>
-        <div id="modal-lower">
-            <div id="modal-info-container">
-                <div id="modal-date">
-                    <p id="modal-date-text" class="title-text">Päivämäärä ja aika:</p>
-                    <p id="modal-date-value"></p>
-                </div>
-                <div id="modal-phone">
-                    <p id="modal-phone-text" class="title-text">Puhelinnumero:</p>
-                    <p id="modal-phone-value"></p>
-                </div>
-                <div id="modal-email">
-                    <p id="modal-email-text" class="title-text">Sähköposti:</p>
-                    <p id="modal-email-value"></p>
-                </div>
-                <div id="modal-location">
-                    <p id="modal-location-text" class="title-text">Sijainti:</p>
-                    <p id="modal-location-value"></p>
-                </div>
-                <div id="modal-link">
-                    <p id="modal-link-text" class="title-text">Lisätieto linkki:</p>
-                    <a id="modal-link-value" target="_blank"></a>
+            <div id="modal-third" class="modal-panel">
+                <div id="modal-info-container">
+                    <div id="modal-date">
+                        <p id="modal-date-text" class="title-text">Päivämäärä ja aika</p>
+                        <p id="modal-date-value"></p>
+                    </div>
+                    <div id="modal-phone">
+                        <p id="modal-phone-text" class="title-text">Puhelinnumero</p>
+                        <p id="modal-phone-value"></p>
+                    </div>
+                    <div id="modal-email">
+                        <p id="modal-email-text" class="title-text">Sähköposti</p>
+                        <p id="modal-email-value"></p>
+                    </div>
+                    <div id="modal-location">
+                        <p id="modal-location-text" class="title-text">Sijainti</p>
+                        <p id="modal-location-value"></p>
+                    </div>
+                    <div id="modal-link">
+                        <p id="modal-link-text" class="title-text">Lisätieto linkki</p>
+                        <a id="modal-link-value" target="_blank"></a>
+                    </div>
                 </div>
             </div>
         </div>
