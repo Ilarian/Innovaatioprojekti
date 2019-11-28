@@ -40,13 +40,25 @@ router.post('/results/:phys&:think&:soc', function(req, res) {
 
 });
 
+router.get('/getTaskToModify/:id', function(req,res){
+  function sendResponse(result) {
+    res.send(result);
+  }
+  db.getTaskToModify(req.params.id, sendResponse);
+});
+
 router.delete('/delete/:id', function(req, res) {
   db.delete(req.params.id);
 });
 
 router.post('/add', function(req, res) {
-  db.add(req.body)
-  res.redirect('/admin.html')
+  db.add(req.body);
+  res.redirect('/admin.html');
+});
+
+router.post('/update', function(req, res){
+  db.updateTask(req.body);
+  res.redirect('/admin.html');
 });
 
 router.get('/task', function(req, res) {
