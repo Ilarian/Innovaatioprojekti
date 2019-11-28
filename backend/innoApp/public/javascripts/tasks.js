@@ -269,7 +269,7 @@ window.onload = function(){
                 modalImageContainer.removeChild(modalImageContainer.firstChild);
             }
             descriptionText.innerHTML = item.description;
-            dateText.innerHTML = item.date;
+            dateText.innerHTML = item.task_when;
             phoneText.innerHTML = item.phone;
             emailText.innerHTML = item.email;
             linkText.innerHTML = item.link;

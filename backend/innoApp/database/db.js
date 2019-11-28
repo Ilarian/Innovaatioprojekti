@@ -23,7 +23,7 @@ exports.test = function(callback) {
 
     // Needs to be changed to match the table in the desired db
     // This function is async and must callback
-    connection.query('SELECT task_id, name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location.location_name, email, phone, link, date FROM task LEFT JOIN location ON task.location_id = location.location_id', function (err, rows, fields) {
+    connection.query('SELECT task_id, name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location.location_name, email, phone, link, date, task_when FROM task LEFT JOIN location ON task.location_id = location.location_id', function (err, rows, fields) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);
@@ -49,9 +49,9 @@ exports.add = function(body){
 
     connection.query('SELECT location_id FROM location WHERE ? = location_name', [body.Paikka], (err, rows, fields) =>{
         let locId = rows[0].location_id;
-        connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, email, phone, link, date, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, email, phone, link, date, task_when, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [body.Nimi, body.Kuvaus, body.Ajattelu, body.Fyysisyys, body.Sosiaalisuus,
-                body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, locId], (err, rows, fields) =>{
+                body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, body.Milloin, locId], (err, rows, fields) =>{
                 if (err) throw err;
                 connection.end();
             });
@@ -191,9 +191,9 @@ exports.updateTask = (body) => {
 
     connection.query('SELECT location_id FROM location WHERE ? = location_name', [body.Paikka], (err, rows, fields) =>{
         let locId = rows[0].location_id;
-        connection.query('UPDATE task SET name = ?, description = ?, ajattelu_value = ?, fysiikka_value = ?, sosiaalisuus_value = ?, email = ?, phone = ?, link = ?, date = ?, location_id = ? WHERE task_id = ? '
+        connection.query('UPDATE task SET name = ?, description = ?, ajattelu_value = ?, fysiikka_value = ?, sosiaalisuus_value = ?, email = ?, phone = ?, link = ?, date = ?, task_when = ?, location_id = ? WHERE task_id = ? '
             , [body.Nimi, body.Kuvaus, body.Ajattelu, body.Fyysisyys, body.Sosiaalisuus,
-                body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, locId, body.Id], function(err, rows, fields){
+                body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, body.Milloin, locId, body.Id], function(err, rows, fields){
                 if(err) throw err;
                 connection.end();
             });

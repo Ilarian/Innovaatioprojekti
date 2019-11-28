@@ -165,6 +165,10 @@ function listText(listNum){
         case 10:
             text = "Pvm: ";
             break;
+
+        case 11:
+            text = "Milloin: ";
+            break;
     }
 
     return text;
@@ -207,6 +211,7 @@ function modifyRequest(id){
             document.getElementById("mPuhelin").defaultValue = dbTasks[0].phone;
             //TODO korjaa pvm formaatti
             document.getElementById("mPvm").defaultValue = dbTasks[0].date;
+            document.getElementById("mMilloin").defaultValue = dbTasks[0].task_when;
             document.getElementById("mLinkki").defaultValue = dbTasks[0].link;
 
 
