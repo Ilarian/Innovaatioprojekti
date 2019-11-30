@@ -16,8 +16,10 @@
 <!-- Tab links -->
 <div class="tab">
     <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'tehtävät')">Tehtävät</button>
+    <button class="tablinks" onclick="openTab(event, 'kuvienlataus')">Lataa kuvia</button>
     <button class="tablinks" onclick="openTab(event, 'ehdotukset')">Ehdotukset</button>
     <button class="tablinks" onclick="openTab(event, 'ohjeet')">Ohjeet</button>
+
 
 
 </div>
@@ -25,6 +27,15 @@
 <!-- Tab content -->
 <div id="ohjeet" class="tabcontent">
     <p>Tässä on ohjeita hallintapaneelin käyttöön</p>
+
+</div>
+
+<div id="kuvienlataus" class="tabcontent">
+    <form method="post" enctype="multipart/form-data" action="db/upload">
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+    <ul id="kuvat"></ul>
 </div>
 
 <div id="ehdotukset" class="tabcontent">

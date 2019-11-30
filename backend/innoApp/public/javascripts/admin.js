@@ -1,6 +1,7 @@
 
 let xhr = new XMLHttpRequest();
 window.onload = () => {
+    getImageList();
     getTasks();
     getSuggestions();
     getLocations();
@@ -63,6 +64,26 @@ function getTasks(){
     xhr.send(null);
 }
 
+function getImageList(){
+    xhr.open("GET", "db/getImages", false)
+    xhr.onload = (e) => {
+        if(xhr.readyState === 4 && xhr.status === 200){
+            let kuvalista = document.getElementById("kuvat");
+            let kuvaArr = JSON.parse(xhr.responseText);
+            kuvaArr.forEach(kuva =>{
+                let listObj = document.createElement("li");
+                listObj.innerHTML = kuva;
+                kuvalista.appendChild(listObj);
+            })
+        }else{
+            console.error(xhr.statusText);
+        }
+    }
+    xhr.onerror = function (e) {
+        console.error(xhr.statusText);
+    };
+    xhr.send(null);
+}
 
 
 function getSuggestions() {
@@ -265,7 +286,6 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 
 
 // Get the modal
