@@ -98,14 +98,17 @@ exports.getSuggestion = function(callback) {
     connection.end();
 }
 
-// Returns all tasks with first image they have and with location name
+// Returns all tasks that have date same or after today with first image they have and with location name
 exports.getTask = function(callback) {
     //Needs to be changed when db has been established
     let connection = connectDb();
     connection.connect();
 
     // This function is async and must callback
-    connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) GROUP BY t.task_id', function (err, rows, fields) {
+    //Original
+    //connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) GROUP BY t.task_id', function (err, rows, fields) {
+    //Filter by date as to offer tasks to a certain date
+    connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) WHERE DATE >= CURRENT_DATE() GROUP BY t.task_id', function (err, rows, fields) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);

@@ -1,6 +1,6 @@
 window.onload = function(){
     // Const so the amount shown can be changed easily
-    const shown = 12;
+    const shown = 4;
     // Iterator limiter for show more
     var j = shown;
 
@@ -119,8 +119,21 @@ window.onload = function(){
 
         //task
         task.classList.add("task");
-        var colorIndex = colorArray[index%colorArray.length];	
-        task.style="background-color: "+colorIndex+";";
+        var colorIndex = colorArray[index%colorArray.length];
+
+        switch(index){
+            case 0:
+                task.style="background-color: "+colorIndex+"; border-color: gold;";
+                break;
+            case 1:
+                task.style="background-color: "+colorIndex+"; border-color: silver";
+                break;
+            case 2:
+                task.style="background-color: "+colorIndex+"; border-color: chocolate";
+                break;
+            default:
+                task.style="background-color: "+colorIndex+";";
+        }
 
         //image container
         imagecontainer.classList.add("imagecontainer");
