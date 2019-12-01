@@ -27,21 +27,21 @@
             <li class="active"><a href="index.html">Etusivu</a></li>
             <li><a href="all_tasks.html">Kaikki tehtävät</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a>Logot ym tänne</a></li>
-        </ul>
     </div>
 </nav>
 
 <body class="body">
-<!-- väliaikaiset br:ät -->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<div class="space">
+    <div class="text-center">
+        <h3 class="text-light">
+            Mitä tekemistä kaipaisit? Vedä palloja sen mukaan! (1 vähiten, 5 eniten)
+        </h3>
+        <p>
+            Siirrä osoitin kuvien päälle jos tarvitset lisätietoja
+        </p>
+    </div>
+</div>
 
  <!-- kuvien vaihtoscripti -->
   <script>
@@ -99,14 +99,7 @@
 		</script>
     
 	<form>
-  
-    <div class="filter-container">
-        <p>Sijainti:</p>
-        <select id="locationDropdown" class="black-text">
-            <option value="kaikki" selected>Kaikki</option>
-            <!-- Get options from db-->
-        </select>
-    </div>
+
         <br>
         <br>
 
@@ -204,6 +197,17 @@
             xhr.send();
         }
     </script>
+
+        <br>
+        <br>
+
+        <div class="filter-container">
+            <p>Sijainti:</p>
+            <select id="locationDropdown" class="black-text">
+                <option value="kaikki" selected>Kaikki</option>
+                <!-- Get options from db-->
+            </select>
+        </div>
      <p align="center">
      <br>
       <!--<a href="results.html">--><button type="button" class="button" onclick="haeOnClick()">HAE!</button><!--</a>-->
@@ -250,25 +254,39 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="page-footer">
 
-        <!-- Kontaktitieto -->
-        <div class="contact">
-            <div class="container">
-                <h2 class="section-heading">Ota yhteyttä</h2>
-                <p><span class="glyphicon glyphicon-earphone"></span> 040 123456789</p>
-                <p><span class="glyphicon glyphicon-envelope"></span> info@esimerkki.com</p>
-            </div>
+<!-- Footer -->
+<footer class="page-footer">
+
+    <!-- Kontaktitieto -->
+    <div class="contact">
+        <div class="container">
+            <h2 class="section-heading">Ota yhteyttä</h2>
+            <p><span class="glyphicon glyphicon-earphone"></span> 040 123456789</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> info@esimerkki.com</p>
         </div>
+    </div>
 
-        <!-- Copyright jne
-        <div class="small-print">
-            <div class="container">
-                <p>Copyright</p>
-            </div>
+    <!-- Copyright jne
+    <div class="small-print">
+        <div class="container">
+            <p>Copyright</p>
         </div>
-        -->
+    </div>
+    -->
 
-    </footer>
+    <div class="logos">
+        <div class="container">
+            <img src="images/logos/EU_ESR_FI_vertical_20mm_rgb.png">
+            <img src="images/logos/HVTlogoRGBtaustaton.png">
+            <img src="images/logos/Metropolia_RGB_A.png">
+            <img src="images/logos/VipuvoimaaEU_2014_2020_rgb.png">
+            <img src="images/logos/saimia_logo.png">
+            <img src="images/logos/SJK_ko_vaakaCMYK_trans.png">
+            <img src="images/logos/logo_hr.png">
+            <img src="images/logos/ljlp_ilkmok-18.png">
+        </div>
+    </div>
+
+</footer>
 </body>
