@@ -51,7 +51,7 @@ REPLACE INTO `image` (`image_id`, `url`, `task_id`) VALUES
 DROP TABLE IF EXISTS `location`;
 CREATE TABLE IF NOT EXISTS `location` (
   `location_id` int(11) NOT NULL AUTO_INCREMENT,
-  `location_name` varchar(255) DEFAULT NULL,
+  `location_name` varchar(63) DEFAULT NULL,
   PRIMARY KEY (`location_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -109,8 +109,8 @@ REPLACE INTO `results` (`results_id`, `fysiikka_value`, `ajattelu_value`, `sosia
 DROP TABLE IF EXISTS `suggestion`;
 CREATE TABLE IF NOT EXISTS `suggestion` (
   `suggestion_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(4095) DEFAULT NULL,
+  `name` varchar(31) DEFAULT NULL,
+  `description` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`suggestion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -122,15 +122,16 @@ CREATE TABLE IF NOT EXISTS `suggestion` (
 DROP TABLE IF EXISTS `task`;
 CREATE TABLE IF NOT EXISTS `task` (
   `task_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(4095) DEFAULT NULL,
+  `name` varchar(31) DEFAULT NULL,
+  `description` varchar(800) DEFAULT NULL,
   `ajattelu_value` int(11) DEFAULT NULL,
   `fysiikka_value` int(11) DEFAULT NULL,
   `sosiaalisuus_value` int(11) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
+  `phone` varchar(31) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
+  `task_when` varchar(255) DEFAULT NULL,
   `location_id` int(11) NOT NULL,
   PRIMARY KEY (`task_id`),
   KEY `location_id` (`location_id`),
@@ -139,20 +140,20 @@ CREATE TABLE IF NOT EXISTS `task` (
 
 -- Dumping data for table jobmatch.task: ~6 rows (suunnilleen)
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
-REPLACE INTO `task` (`task_id`, `name`, `description`, `ajattelu_value`, `fysiikka_value`, `sosiaalisuus_value`, `email`, `phone`, `link`, `date`, `location_id`) VALUES
-	(14, 'Kahvilan vapaaehtoinen', 'Annalan huvilassa toimii sunnuntaisin ja tapahtumien yhteydessä Annalan huvilan ystävien ylläpitämä Café Anneberg. Kahvila ottaa lämmöllä vastaan kaikki kahvilatoiminnasta kiinnostuneet vapaaehtoiset. Tule mukaan opastamaan, keskustelemaan asiakkaiden kanssa, keittämään kahvia ja laittamaan esille ihanat leivonnaiset, joita vapaaehtoiset valmistavat tunnelmalliseen Café Annebergiin.', 2, 2, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(15, 'Leipuri', 'Onko sinulla takuuvarma isoäidin omenapiirakkaresepti? Tai ohje maailman parhaaseen siemenlevitteeseen? Leivotko gluteenitonta leipää, jonka tuoksu saa veden herahtamaan kielelle? Café Annebergin tuotteet valmistetaan vapaaehtoisvoimin. Café Annebergissa tarjotaan monipuolisia leivonnaisia, joissa huomioidaan myös erityisruokavaliot ja kestävän kehityksen periaatteet. Kaikki jauhopeukalot ovat lämpimästi tervetulleita leipureiden tiimiin.', 3, 3, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(16, 'Salin vapaaehtoinen', 'Eikö leipominen ole alaasi, mutta kahvilan tunnelma ja sosiaalisuus innostaa suuresti? Tule mukaan keskustelemaan asiakkaiden kanssa, pitämään huolta kahvilasalin siisteydestä ja edistämään sitä ihanaa tunnelmaa, joka Café Annebergissä vallitsee.', 3, 3, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(17, 'Kahvilan kassa', 'Oletko haka laskutoimituksissa? Opitko uudet järjestelmät helposti? Tule kassahenkilöksi! Kahvilan kassan tärkeä tehtävä on kuvailla tuotteita houkuttelevasti, myydä pikkuleipä pelkän kahvin ostajalle, olla opastamassa kävijöitä ja rakentaa kutsuvaa ilmapiiriä.', 4, 1, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(18, 'Tiskari', 'Rakastatko kahvilatunnelmaa ja yhdessä tekemistä, mutta asiakkaiden kanssa sosialisointi ei tunnu sinun jutultasi? Tule keittiövapaaehtoiseksi tiskaamaan astioita, keittämään kahvia ja pitämään yllä keittiön järjestystä. Rooli on tärkeä osa kahvilan herkkää ekosysteemiä, jossa pääsee tutustumaan muihin kahvilavapaaehtoisiin, mutta vältyt asiakaspalvelulta.', 1, 4, 1, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(19, 'Opas', 'Oletko intohimoinen historiaharrastaja tai olet kiinnostunut ryhmien opastamisesta? Toisinaan järjestämme tapahtumien osana kävelykierroksia, jotka käsittelevät Annalan historiaa, kaunista muotopuutarhaa ja jopa Annalan keväällä kukkivia syreenipensaita. Opastuksia on myös monella kielellä, suomeksi, ruotsiksi, englanniksi ja joskus saksaksi tai venäjäksi. Tule tutustumaan Annalan monipuoliseen kulttuurihistoriaan, ja jakamaan tietoutta kiinnostuneille kävijöille.', 4, 2, 5, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(20, 'Kaakeliuunin lämmittäjä', 'Saatko sen hankalimman mökkisaunan kiukaan syttymään ensimmäisellä kerralla? Haluaisitko ehkä oppia? Tule mukaan lämmittämään Annalan huvilan alkuperäisiä Arabian kaakeleista valmistettuja kaakeliuuneja ja pitämään huolta Helsingin vanhimmasta huvilasta.', 2, 3, 1, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(21, 'Puutalkoolainen', 'Pysyykö sinulla kirves kädessä? Onko halkojen kasaaminen rentouttavaa? Kaipaatko puutalkoita ja kiehisten eli sytykkeiden veistelyä? Tule auttamaan meitä kylmenevien iltojen puuhommissa ja nauttimaan raikkaasta ulkoilmasta siinä samalla!', 1, 5, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(22, 'Palstan puutarhuri', 'Oletko aina halunnut oppia kylvämään porkkanoita? Haluatko huolehtia yrttipenkistä ja kerätä piirakka-ainekset suoraan kasvimaalta? Oletko kiinnostunut villivihanneksista ja niiden hyödyntämisestä kotikeittiössä? Annalan huvilan palstalla pääset tekemään oikeaa ja aitoa puutarhurin työtä – kevyesti ja vapaaehtoisesti osaavan puutarhamestarin opastuksella. Myös lähiluontoa hyödynnetään villivihannesten satokaudella.', 2, 4, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(23, 'Nikkari', 'Pysyykö sinulla vasara kädessä? Oletko haka kodin pikkunikkaroinneissa? Annalan huvilalla toisinaan tarvitaan käteviä käsiä erinäisten pienten puutöiden kanssa. Milloin tehdään palstalle portti ja milloin puisia kansia laatikoille. Tule vapaaehtoiseksi nikkariksi', 3, 4, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(24, 'Somistaja', 'Luotko tavallisista arkisista esineistä mitä mielikuvituksellisempia kattauksia? Onko teematapahtumien koristelukokonaisuudet intohimosi? Tule mukaan ideoimaan, tekemään ja luomaan kanssamme tapahtumista kokonaisvaltaisen kokonaisuuden, jossa pienimmätkin yksityiskohdat on mietitty.', 5, 2, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(25, 'Tapahtuma-apulainen', 'Vapaaehtoisia tarvitaan paitsi tapahtumien toteuttamiseen, myös niiden ideointiin ja suunnitteluun. Vapaaehtoisena pääset mukaan kantamaan tuoleja, opastamaan tapahtumayleisöä, korjaamaan roskia ja koristelemaan terassia. Tai jotain muuta – kerro meille, miten haluaisit olla mukana Annalan huvilan tapahtumatoiminnassa!', 3, 3, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2),
-	(26, 'Jokapaikan osaaja', 'Haluatko olla mukana Annalan huvilan toiminnassa, muttet löytänyt näistä tapaasi? Tule kertomaan meille, miten haluat olla mukana!', 3, 3, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 2);
+REPLACE INTO `task` (`task_id`, `name`, `description`, `ajattelu_value`, `fysiikka_value`, `sosiaalisuus_value`, `email`, `phone`, `link`, `date`, `task_when`, `location_id`) VALUES
+	(14, 'Kahvilan vapaaehtoinen', 'Annalan huvilassa toimii sunnuntaisin ja tapahtumien yhteydessä Annalan huvilan ystävien ylläpitämä Café Anneberg. Kahvila ottaa lämmöllä vastaan kaikki kahvilatoiminnasta kiinnostuneet vapaaehtoiset. Tule mukaan opastamaan, keskustelemaan asiakkaiden kanssa, keittämään kahvia ja laittamaan esille ihanat leivonnaiset, joita vapaaehtoiset valmistavat tunnelmalliseen Café Annebergiin.', 2, 2, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(15, 'Leipuri', 'Onko sinulla takuuvarma isoäidin omenapiirakkaresepti? Tai ohje maailman parhaaseen siemenlevitteeseen? Leivotko gluteenitonta leipää, jonka tuoksu saa veden herahtamaan kielelle? Café Annebergin tuotteet valmistetaan vapaaehtoisvoimin. Café Annebergissa tarjotaan monipuolisia leivonnaisia, joissa huomioidaan myös erityisruokavaliot ja kestävän kehityksen periaatteet. Kaikki jauhopeukalot ovat lämpimästi tervetulleita leipureiden tiimiin.', 3, 3, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(16, 'Salin vapaaehtoinen', 'Eikö leipominen ole alaasi, mutta kahvilan tunnelma ja sosiaalisuus innostaa suuresti? Tule mukaan keskustelemaan asiakkaiden kanssa, pitämään huolta kahvilasalin siisteydestä ja edistämään sitä ihanaa tunnelmaa, joka Café Annebergissä vallitsee.', 3, 3, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(17, 'Kahvilan kassa', 'Oletko haka laskutoimituksissa? Opitko uudet järjestelmät helposti? Tule kassahenkilöksi! Kahvilan kassan tärkeä tehtävä on kuvailla tuotteita houkuttelevasti, myydä pikkuleipä pelkän kahvin ostajalle, olla opastamassa kävijöitä ja rakentaa kutsuvaa ilmapiiriä.', 4, 1, 4, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(18, 'Tiskari', 'Rakastatko kahvilatunnelmaa ja yhdessä tekemistä, mutta asiakkaiden kanssa sosialisointi ei tunnu sinun jutultasi? Tule keittiövapaaehtoiseksi tiskaamaan astioita, keittämään kahvia ja pitämään yllä keittiön järjestystä. Rooli on tärkeä osa kahvilan herkkää ekosysteemiä, jossa pääsee tutustumaan muihin kahvilavapaaehtoisiin, mutta vältyt asiakaspalvelulta.', 1, 4, 1, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(19, 'Opas', 'Oletko intohimoinen historiaharrastaja tai olet kiinnostunut ryhmien opastamisesta? Toisinaan järjestämme tapahtumien osana kävelykierroksia, jotka käsittelevät Annalan historiaa, kaunista muotopuutarhaa ja jopa Annalan keväällä kukkivia syreenipensaita. Opastuksia on myös monella kielellä, suomeksi, ruotsiksi, englanniksi ja joskus saksaksi tai venäjäksi. Tule tutustumaan Annalan monipuoliseen kulttuurihistoriaan, ja jakamaan tietoutta kiinnostuneille kävijöille.', 4, 2, 5, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(20, 'Kaakeliuunin lämmittäjä', 'Saatko sen hankalimman mökkisaunan kiukaan syttymään ensimmäisellä kerralla? Haluaisitko ehkä oppia? Tule mukaan lämmittämään Annalan huvilan alkuperäisiä Arabian kaakeleista valmistettuja kaakeliuuneja ja pitämään huolta Helsingin vanhimmasta huvilasta.', 2, 3, 1, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(21, 'Puutalkoolainen', 'Pysyykö sinulla kirves kädessä? Onko halkojen kasaaminen rentouttavaa? Kaipaatko puutalkoita ja kiehisten eli sytykkeiden veistelyä? Tule auttamaan meitä kylmenevien iltojen puuhommissa ja nauttimaan raikkaasta ulkoilmasta siinä samalla!', 1, 5, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(22, 'Palstan puutarhuri', 'Oletko aina halunnut oppia kylvämään porkkanoita? Haluatko huolehtia yrttipenkistä ja kerätä piirakka-ainekset suoraan kasvimaalta? Oletko kiinnostunut villivihanneksista ja niiden hyödyntämisestä kotikeittiössä? Annalan huvilan palstalla pääset tekemään oikeaa ja aitoa puutarhurin työtä – kevyesti ja vapaaehtoisesti osaavan puutarhamestarin opastuksella. Myös lähiluontoa hyödynnetään villivihannesten satokaudella.', 2, 4, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(23, 'Nikkari', 'Pysyykö sinulla vasara kädessä? Oletko haka kodin pikkunikkaroinneissa? Annalan huvilalla toisinaan tarvitaan käteviä käsiä erinäisten pienten puutöiden kanssa. Milloin tehdään palstalle portti ja milloin puisia kansia laatikoille. Tule vapaaehtoiseksi nikkariksi', 3, 4, 2, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(24, 'Somistaja', 'Luotko tavallisista arkisista esineistä mitä mielikuvituksellisempia kattauksia? Onko teematapahtumien koristelukokonaisuudet intohimosi? Tule mukaan ideoimaan, tekemään ja luomaan kanssamme tapahtumista kokonaisvaltaisen kokonaisuuden, jossa pienimmätkin yksityiskohdat on mietitty.', 5, 2, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(25, 'Tapahtuma-apulainen', 'Vapaaehtoisia tarvitaan paitsi tapahtumien toteuttamiseen, myös niiden ideointiin ja suunnitteluun. Vapaaehtoisena pääset mukaan kantamaan tuoleja, opastamaan tapahtumayleisöä, korjaamaan roskia ja koristelemaan terassia. Tai jotain muuta – kerro meille, miten haluaisit olla mukana Annalan huvilan tapahtumatoiminnassa!', 3, 3, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2),
+	(26, 'Jokapaikan osaaja', 'Haluatko olla mukana Annalan huvilan toiminnassa, muttet löytänyt näistä tapaasi? Tule kertomaan meille, miten haluat olla mukana!', 3, 3, 3, 'email@annalanhuvila.fi', '+358 111 222', 'https://annalanhuvila.fi/', '2019-11-11', 'Keskusteltavissa', 2);
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 
 -- Dumping structure for taulu jobmatch.video

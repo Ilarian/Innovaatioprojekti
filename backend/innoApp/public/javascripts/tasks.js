@@ -8,6 +8,7 @@ window.onload = function(){
 
     // Get the modal
     var modal = document.getElementById("modal");
+    var modalContent = document.getElementById("modal-content");
     var modalHeader = document.getElementById("modal-header");
     var modalImageContainer = document.getElementById("modal-image-container");
     var descriptionText = document.getElementById("modal-description-value");
@@ -38,7 +39,7 @@ window.onload = function(){
     var locationFilter = document.getElementById("locationFilter");
     var filterButton = document.getElementById("filter");
 
-    var colorArray = ["#b5ecff", "#ffe9a6", "#FA8AB0"];
+    var colorArray = ["#b5ecff"];
 
     function recreateTaskList() {
         // clear tasks
@@ -268,7 +269,7 @@ window.onload = function(){
                 modalImageContainer.removeChild(modalImageContainer.firstChild);
             }
             descriptionText.innerHTML = item.description;
-            dateText.innerHTML = item.date;
+            dateText.innerHTML = item.task_when;
             phoneText.innerHTML = item.phone;
             emailText.innerHTML = item.email;
             linkText.innerHTML = item.link;
@@ -373,7 +374,31 @@ window.onload = function(){
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        // Empty modal as this closes videos playing when modal closes
+        while (modalImageContainer.firstChild) {
+            modalImageContainer.removeChild(modalImageContainer.firstChild);
+        }
     } 
+    
+    // Make modal closable by clicking outside the content box
+    // https://stackoverflow.com/questions/37573608/how-to-make-modal-close-on-click-outside
+    modal.addEventListener('click', rootClick);
+    modalContent.addEventListener('click', modalClick);
+
+    function rootClick() {
+        modal.style.display = "none";
+        // Empty modal as this closes videos playing when modal closes
+        while (modalImageContainer.firstChild) {
+            modalImageContainer.removeChild(modalImageContainer.firstChild);
+        }
+    }
+      
+    function modalClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+    }
 
     //Slideshow 
     var slideIndex = 1;

@@ -174,7 +174,7 @@
             var fyysisyysSlider = document.getElementsByName("amountRange");
             var pulmanratkaisuSlider = document.getElementsByName("amountRange2");
             var seurallisuusSlider = document.getElementsByName("amountRange3");
-            var results = {ajattelu_value:fyysisyysSlider[0].value, fysiikka_value:pulmanratkaisuSlider[0].value, sosiaalisuus_value:seurallisuusSlider[0].value};
+            var results = {ajattelu_value:pulmanratkaisuSlider[0].value, fysiikka_value:fyysisyysSlider[0].value, sosiaalisuus_value:seurallisuusSlider[0].value};
             //Store results in local storage for transfer to results site
             //LocalStorage can't store objects so we turn them to JSON
             localStorage.setItem("results",JSON.stringify(results));
