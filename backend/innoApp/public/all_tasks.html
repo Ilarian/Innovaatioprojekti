@@ -107,9 +107,9 @@
                     <p class="text-dark">Etkö löytänyt sinulle sopivaa tehtävää tai onko sinulla jokin hyvä idea tehtävälle? Ehdota tehtävää ja se voidaan lisätä tulevaisuudessa.</p>
                     <div id="suggest-container">
                         <p class="text-dark suggest-header">Tehtävän nimi:</p> 
-                        <input id="taskname" type="text" name="taskname"><br>
+                        <input id="taskname" type="text" name="taskname" maxlength="31"><br>
                         <p class="text-dark suggest-header">Kuvaus:</p> 
-                        <textarea id="desc" name="desc"></textarea><br>
+                        <textarea id="desc" name="desc" maxlength="800"></textarea><br>
                         <button id="suggest" class="btn btn-primary btn-lg">Ehdota</button>
                         <p id="suggestion_confirmation"></p>
                     </div> 
