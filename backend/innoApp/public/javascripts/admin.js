@@ -197,7 +197,7 @@ function listText(listNum){
             break;
 
         case 10:
-            text = "Pvm: ";
+            text = "Näkyvissä päivämäärään asti: ";
             break;
 
         case 11:
