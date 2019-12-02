@@ -1,6 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../database/db.js');
+const multer = require('multer');
+const fs = require('fs');
+const path = require("path");
+
+const upload = multer({
+  dest: "/temp"
+  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+});
+
 
 /* GET test db connection. */
 router.get('/test', function(req, res, next) {
@@ -39,6 +48,51 @@ router.post('/results/:phys&:think&:soc', function(req, res) {
   db.postResults(req.params.phys, req.params.think, req.params.soc, sendResponse);
 
 });
+
+router.get('/getImages', (req, res) => {
+  fs.readdir('./public/images/annala/', (err, files) =>{
+    let fileArr = [];
+    files.forEach(file => {
+      fileArr.push(file);
+    })
+    console.log(fileArr);
+    res.send(fileArr);
+  })
+});
+
+router.post('/upload', upload.single("file"), function (req, res) {
+
+  //TODO hae paikanNimi dynaamisesti
+  let paikanNimi = "annala";
+  let dir = "./public/images/" + paikanNimi + "/";
+
+  var file = dir + req.file.originalname;
+  if (!fs.existsSync(dir)) {
+    !fs.mkdirSync(dir, {recursive: true});
+  }
+
+  let extension = path.extname(file).toLowerCase();
+  if (extension === ".png" || extension === ".jpeg" || extension === ".jpg") {
+
+    fs.readFile(req.file.path, function (err, data) {
+      fs.writeFile(file, data, function (err) {
+        if (err) {
+          console.error(err);
+          response = {
+            message: 'Sorry, file couldn\'t be uploaded.',
+            filename: req.file.originalname
+          };
+        } else {
+          response = {
+            message: 'File uploaded successfully',
+            filename: req.file.originalname
+          };
+        }
+        res.end(JSON.stringify(response));
+      });
+    });
+  } else { res.end("Wrong filetype!")}
+})
 
 router.get('/getTaskToModify/:id', function(req,res){
   function sendResponse(result) {

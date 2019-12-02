@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+
     <!-- CSS -->
     <link href="stylesheets/admin.css" rel="stylesheet" type="text/css">
 
     <!-- Google fontit -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
 
 </head>
 <body>
@@ -16,8 +18,10 @@
 <!-- Tab links -->
 <div class="tab">
     <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'tehtävät')">Tehtävät</button>
+    <button class="tablinks" onclick="openTab(event, 'kuvienlataus')">Lataa kuvia</button>
     <button class="tablinks" onclick="openTab(event, 'ehdotukset')">Ehdotukset</button>
     <button class="tablinks" onclick="openTab(event, 'ohjeet')">Ohjeet</button>
+
 
 
 </div>
@@ -25,6 +29,15 @@
 <!-- Tab content -->
 <div id="ohjeet" class="tabcontent">
     <p>Tässä on ohjeita hallintapaneelin käyttöön</p>
+
+</div>
+
+<div id="kuvienlataus" class="tabcontent">
+    <form method="post" enctype="multipart/form-data" action="db/upload">
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+    <ul id="kuvat"></ul>
 </div>
 
 <div id="ehdotukset" class="tabcontent">
@@ -49,9 +62,9 @@
                     <p>Tehtävän nimi:</p> <input type="text" name="Nimi" required maxlength="31">
                     <p>Tehtävän kuvaus:</p> <textarea type="text" class="kuvaus" name="Kuvaus" required maxlength="800"></textarea>
                     <p>Tehtävän attribuutit numeroina:</p>
-                    <p>Fyysisyys</p> <input type="number" name="Fyysisyys" min="0" max="5" required>
-                    <p>Ajattelu</p> <input type="number" name="Ajattelu" min="0" max="5" required>
-                    <p>Sosiaalisuus</p> <input type="number" name="Sosiaalisuus" min="0" max="5" required>
+                    <p class="inline">Fyysisyys</p> <input class="inline" type="number" name="Fyysisyys" min="0" max="5" required>
+                    <p class="inline">Ajattelu</p> <input class="inline" type="number" name="Ajattelu" min="0" max="5" required>
+                    <p class="inline">Sosiaalisuus</p> <input class="inline" type="number" name="Sosiaalisuus" min="0" max="5" required>
                     <p>Paikka</p>
                     <select class="paikkaDropdown" name="Paikka" required>
                     </select>
@@ -60,6 +73,10 @@
                     <p>Linkki</p> <input type="text" name="Linkki" required maxlength="255">
                     <p>Näkyvissä päivämäärään asti</p> <input type="date" name="Pvm" required>
                     <p>Milloin</p> <textarea class="milloin" type="text" name="Milloin" required maxlength="255"></textarea>
+                    <p>Valitse kuva(t)</p><p>Valitaksesi useamman kuvan, pidä ctrl (PC) tai command (MAC) -näppäin pohjassa</p> <select name="Kuvat" class="kuvat" multiple="multiple" size="5">
+                    </select>
+                    <img src="/images/annala/test.png" class="preview">
+
                     <input type="submit" value="Lisää">
                 </form>
             </div>
@@ -88,6 +105,9 @@
                     <p>Linkki</p> <input id="mLinkki" type="text" name="Linkki" required maxlength="255">
                     <p>Näkyvissä päivämäärään asti</p> <input id="mPvm" type="date" name="Pvm" required>
                     <p>Milloin</p> <textarea id="mMilloin" class="kuvaus" type="text" name="Milloin" required maxlength="255"></textarea>
+                    <p>Valitse kuva(t)</p><p>Valitaksesi useamman kuvan, pidä ctrl (PC) tai command (MAC) -näppäin pohjassa</p><select name="Kuvat" class="kuvat" multiple="multiple" size="5">
+                    </select>
+                    <img src="/images/annala/test.png" class="preview">
                     <input type="submit" value="Muokkaa">
                 </form>
             </div>
@@ -97,7 +117,6 @@
     </div>
     <div id='dbresponse'></div>
 </div>
-
 
 <script src="./javascripts/admin.js"></script>
 </body>
