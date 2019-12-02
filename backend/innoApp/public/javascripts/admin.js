@@ -6,6 +6,8 @@ window.onload = () => {
     getSuggestions();
     getLocations();
 }
+
+
 //Make a get call to /db route
 //TODO vaihda kutsun url
 //Populoi tehtävälistan
@@ -68,23 +70,34 @@ function getImageList(){
     xhr.open("GET", "db/getImages", false)
     xhr.onload = (e) => {
         if(xhr.readyState === 4 && xhr.status === 200){
-            let kuvalista = document.getElementById("kuvat");
+            let kuvalista = document.getElementsByClassName("kuvat");
             let kuvaArr = JSON.parse(xhr.responseText);
             kuvaArr.forEach(kuva =>{
-                let listObj = document.createElement("li");
-                listObj.innerHTML = kuva;
-                kuvalista.appendChild(listObj);
-            })
+                [].forEach.call(kuvalista, element => {
+                    let optionEl = document.createElement("option");
+                    optionEl.addEventListener('click', imagePreview);
+                    optionEl.innerHTML = kuva;
+                    element.appendChild(optionEl);
+                });
+            });
         }else{
             console.error(xhr.statusText);
         }
-    }
+    };
     xhr.onerror = function (e) {
         console.error(xhr.statusText);
     };
     xhr.send(null);
 }
 
+function imagePreview(el){
+    console.log(el.target);
+    let imgName = el.target.innerHTML;
+    let previewArea = document.getElementsByClassName("preview");
+    [].forEach.call(previewArea, element => {
+        element.setAttribute("src", "/images/annala/" + imgName);
+    })
+}
 
 function getSuggestions() {
     xhr.open("GET", "db/suggestion", false)

@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2d6684c4-ab06-4bb5-8472-8a8a52972efb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/innoApp/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/database/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/database/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/innoApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/innoApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/innoApp/public/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/innoApp/routes/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/routes/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,28 +33,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/innoApp/database/db.js">
+        <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="86" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
+            <state relative-caret-position="333">
+              <caret line="107" column="107" selection-start-line="107" selection-start-column="107" selection-end-line="107" selection-end-column="107" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
+        <entry file="file://$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="153">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="71" column="55" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
+            <state relative-caret-position="-3645">
+              <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -62,26 +62,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+            <state relative-caret-position="-534">
+              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/index.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/innoApp/database/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/innoApp/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-2248">
+              <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -117,14 +108,14 @@
         <option value="$PROJECT_DIR$/backend/innoApp/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/backend/innoApp/routes/index.js" />
         <option value="$PROJECT_DIR$/backend/innoApp/public/stylesheets/stylesheet.css" />
-        <option value="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" />
         <option value="$PROJECT_DIR$/database/JobMatch_Model_Criterias_As_Attributes_Version_2.sql" />
         <option value="$PROJECT_DIR$/database/SQL query dump.txt" />
-        <option value="$PROJECT_DIR$/backend/innoApp/database/db.js" />
         <option value="$PROJECT_DIR$/backend/innoApp/app.js" />
-        <option value="$PROJECT_DIR$/backend/innoApp/public/admin.html" />
         <option value="$PROJECT_DIR$/backend/innoApp/routes/database.js" />
         <option value="$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js" />
+        <option value="$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css" />
+        <option value="$PROJECT_DIR$/backend/innoApp/public/admin.html" />
+        <option value="$PROJECT_DIR$/backend/innoApp/database/db.js" />
       </list>
     </option>
   </component>
@@ -139,6 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,6 +148,13 @@
               <item name="jobimatch" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="innoApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jobimatch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobimatch" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="innoApp" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jobimatch" type="b2602c69:ProjectViewProjectNode" />
@@ -197,7 +196,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,7 +274,8 @@
       <workItem from="1572780877825" duration="22099000" />
       <workItem from="1573128796519" duration="13291000" />
       <workItem from="1574598555995" duration="616000" />
-      <workItem from="1575125337161" duration="13851000" />
+      <workItem from="1575125337161" duration="13965000" />
+      <workItem from="1575222781280" duration="20982000" />
     </task>
     <task id="LOCAL-00001" summary="Hallintapaneeli: tietokannan lukeminen ja sieltä poistaminen">
       <created>1572810926029</created>
@@ -334,11 +333,18 @@
       <option name="project" value="LOCAL" />
       <updated>1574667772626</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Kuvien lisääminen palvelimelle">
+      <created>1575144374905</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575144374905</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92620000" />
+    <option name="totallyTimeSpent" value="113716000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -354,9 +360,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20042644" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20255864" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.5378465" visible="true" weight="0.3109426" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.5922175" visible="true" weight="0.3109426" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49626866" weight="0.28060672" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -367,7 +373,7 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.46215352" side_tool="true" visible="true" weight="0.3109426" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.40778252" side_tool="true" visible="true" weight="0.3109426" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Database" order="0" weight="0.3292683" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -449,7 +455,8 @@
     <MESSAGE value="DB luontiskripti: image id auto increment, image fk on delete cascade&#10;Hallintapaneeli: default tab, poiston yhteydessä sivun päivitys" />
     <MESSAGE value="Merge branch 'Ile-dev' of https://github.com/Ilarian/Innovaatioprojekti into Ile-dev&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;backend/innoApp/database/db.js&#10;#&#9;backend/innoApp/routes/database.js" />
     <MESSAGE value="Korjattu tehtävien lisääminen ja muokkaaminen uuden db kanssa yhteensopivaksi&#10;Ehdotusten tarkastelu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Korjattu tehtävien lisääminen ja muokkaaminen uuden db kanssa yhteensopivaksi&#10;Ehdotusten tarkastelu" />
+    <MESSAGE value="Kuvien lisääminen palvelimelle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kuvien lisääminen palvelimelle" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/aloitus.css" />
@@ -560,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/innoApp/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -623,23 +623,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/Untitled.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/database/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="86" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/Untitled.png" />
     <entry file="file://$PROJECT_DIR$/database/jobMatch_testikanta.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -654,31 +638,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/innoApp/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/innoApp/public/javascripts/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="71" column="55" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
+        <state relative-caret-position="-3645">
+          <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/routes/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-534">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/stylesheets/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/public/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="107" column="107" selection-start-line="107" selection-start-column="107" selection-end-line="107" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/innoApp/database/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2248">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
         </state>
       </provider>
     </entry>
