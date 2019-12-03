@@ -1,5 +1,7 @@
 var mysql = require('mysql');
+var async = require('async');
 var exports = module.exports = {};
+
 
 //(NOTE: CREATING A CONNECTION FOR EVERY QUERY MIGHT NOT BE GREAT FOR PERFORMANCE. SHOULD LOOK FOR DIFFERENT APPROACHES AND FIND OUT WHAT IS BEST.)
 
@@ -52,18 +54,28 @@ exports.add = function(body){
         connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, email, phone, link, date, task_when, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [body.Nimi, body.Kuvaus, body.Ajattelu, body.Fyysisyys, body.Sosiaalisuus,
                 body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, body.Milloin, locId], (err, rows, fields) =>{
+
+                let kuvaArr = [];
+                if(typeof body.Kuvat === "string"){
+                    kuvaArr.push(body.Kuvat);
+                }else{
+                    kuvaArr = body.Kuvat;
+                }
+
+                let taskId = rows.insertId;
+                if (kuvaArr != undefined && kuvaArr.length != 0) {
+                    async.each(kuvaArr, (kuva, callback) => {
+                        connection.query('INSERT INTO image (url, task_id) VALUES (?, ?)', ['images/annala/' + kuva, taskId], (err) => {
+                            if (err) throw err;
+                            callback();
+                        })
+                    });
+                }
+
                 if (err) throw err;
                 connection.end();
             });
     });
-
-
-
-  /*  connection.query('INSERT INTO task (name, description, ajattelu_value, fysiikka_value, sosiaalisuus_value, location, email, phone, link, date) VALUES' +
-        ' ( \''+body.Nimi+'\', \''+body.Kuvaus+'\', '+body.Ajattelu+', '+body.Fyysisyys+', '+body.Sosiaalisuus+', \''+body.Paikka+'\', \''+body.Sähköposti+'\', \''+body.Puhelin+'\', \''+body.Linkki +'\', \''+body.Pvm+'\' )', function (err, rows, fields) {
-        if (err) throw err;
-    }); */
-
 
 }
 
@@ -98,14 +110,17 @@ exports.getSuggestion = function(callback) {
     connection.end();
 }
 
-// Returns all tasks with first image they have and with location name
+// Returns all tasks that have date same or after today with first image they have and with location name
 exports.getTask = function(callback) {
     //Needs to be changed when db has been established
     let connection = connectDb();
     connection.connect();
 
     // This function is async and must callback
-    connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) GROUP BY t.task_id', function (err, rows, fields) {
+    //Original
+    //connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) GROUP BY t.task_id', function (err, rows, fields) {
+    //Filter by date as to offer tasks to a certain date
+    connection.query('SELECT t.*, l.location_name, i.url FROM task t LEFT JOIN image i ON (t.task_id = i.task_id) LEFT JOIN location l ON (t.location_id = l.location_id) WHERE DATE >= CURRENT_DATE() GROUP BY t.task_id', function (err, rows, fields) {
     if (err) throw err;
     // Sends the response back to client
     callback(rows);
@@ -194,8 +209,30 @@ exports.updateTask = (body) => {
         connection.query('UPDATE task SET name = ?, description = ?, ajattelu_value = ?, fysiikka_value = ?, sosiaalisuus_value = ?, email = ?, phone = ?, link = ?, date = ?, task_when = ?, location_id = ? WHERE task_id = ? '
             , [body.Nimi, body.Kuvaus, body.Ajattelu, body.Fyysisyys, body.Sosiaalisuus,
                 body.Sähköposti, body.Puhelin, body.Linkki, body.Pvm, body.Milloin, locId, body.Id], function(err, rows, fields){
+
+                let kuvaArr = [];
+                let taskId = body.Id;
+                if(typeof body.Kuvat === "string"){
+                    kuvaArr.push(body.Kuvat);
+                }else{
+                    kuvaArr = body.Kuvat;
+                }
+
+
+                //Check if Kuvat array is populated, then delete existing image rows and add new ones
+                if(kuvaArr != undefined && kuvaArr.length != 0) {
+                    connection.query('DELETE FROM image WHERE task_id = ?', [taskId], (err) => {
+                        //Asynchronous foreach loop to add images
+                        async.each(kuvaArr, (kuva, callback) => {
+                            connection.query('INSERT INTO image (url, task_id) VALUES (?, ?)', ['images/annala/' + kuva, taskId], (err) => {
+                                if (err) throw err;
+                                callback();
+                            })
+                        });
+                        connection.end();
+                    })
+                }
                 if(err) throw err;
-                connection.end();
             });
     });
 
