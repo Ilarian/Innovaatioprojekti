@@ -108,6 +108,7 @@ window.onload = function(){
     // create new task element
     function addTask(item, index) {
         // get DOM end to append
+        var match = document.getElementById("match");
         var tasklist = document.getElementById("tasklist");
 
         // create necessary elements
@@ -120,20 +121,7 @@ window.onload = function(){
         //task
         task.classList.add("task");
         var colorIndex = colorArray[index%colorArray.length];
-
-        switch(index){
-            case 0:
-                task.style="background-color: "+colorIndex+"; border-color: gold;";
-                break;
-            case 1:
-                task.style="background-color: "+colorIndex+"; border-color: silver";
-                break;
-            case 2:
-                task.style="background-color: "+colorIndex+"; border-color: chocolate";
-                break;
-            default:
-                task.style="background-color: "+colorIndex+";";
-        }
+        task.style="background-color: "+colorIndex+";";
 
         //image container
         imagecontainer.classList.add("imagecontainer");
@@ -239,7 +227,12 @@ window.onload = function(){
         task.appendChild(description);
 
         // add to DOM
-        tasklist.appendChild(task);
+        if (index===0) {
+            task.classList.add("match-task");
+            match.appendChild(task);
+        } else {
+            tasklist.appendChild(task);
+        }
     }
 
     morebutton.onclick = showTasks;
